@@ -189,10 +189,10 @@ document.addEventListener('DOMContentLoaded', function () {
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'hero-particle';
-      const size = Math.random() * 3.5 + 2.5;
+      const size = Math.random() * 2.5 + 2;
       const duration = Math.random() * 12 + 10;
       const delay = -(Math.random() * duration); // Negative delay distributes particles instantly across height
-      const targetOpacity = (Math.random() * 0.5 + 0.3).toFixed(2);
+      const targetOpacity = (Math.random() * 0.3 + 0.25).toFixed(2);
 
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
