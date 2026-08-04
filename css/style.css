@@ -2249,10 +2249,15 @@ textarea.contact-form-field {
     width: 100%;
   }
 
+  .hero-content {
+    padding: var(--space-4);
+    width: 100%;
+  }
+
   /* Hero Mobile Typography Optimization - Single Line Elegant Title */
   .hero-title {
     white-space: nowrap;
-    font-size: clamp(1.4rem, 6.2vw, 2.2rem);
+    font-size: clamp(1.15rem, 5.3vw, 1.8rem);
     text-align: center;
     line-height: 1.18;
     margin-bottom: var(--space-4);
