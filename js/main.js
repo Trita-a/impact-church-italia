@@ -296,16 +296,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const banner = document.createElement('div');
     banner.className = 'cookie-banner';
     banner.innerHTML = `
-      <div class="cookie-header">
-        <i class="fas fa-cookie-bite"></i>
-        <h5>${T.cookieTitle}</h5>
-      </div>
       <div class="cookie-content">
-        <p>${T.cookieText}</p>
+        <p><strong>${T.cookieTitle}:</strong> ${T.cookieText}</p>
       </div>
       <div class="cookie-actions">
-        <button class="cookie-btn-decline" id="cookie-decline">${T.cookieDecline}</button>
-        <button class="cookie-btn-accept" id="cookie-accept">${T.cookieAccept}</button>
+        <button class="btn btn-sm btn-outline" id="cookie-decline">${T.cookieDecline}</button>
+        <button class="btn btn-sm btn-primary" id="cookie-accept">${T.cookieAccept}</button>
       </div>
     `;
 

@@ -2527,115 +2527,73 @@ textarea.contact-form-field {
 }
 
 /* ========================================
-   COOKIE BANNER
-   ======================================== */
-/* ========================================
-   COOKIE BANNER (Delicate Floating Glass Card)
+   COOKIE BANNER - Ultra-slim & Modern
    ======================================== */
 .cookie-banner {
   position: fixed;
-  bottom: 24px;
-  left: 24px;
-  max-width: 420px;
-  width: calc(100% - 48px);
-  background: rgba(17, 24, 39, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  color: var(--color-white);
-  padding: var(--space-5) var(--space-6);
-  border-radius: var(--radius-2xl);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translate(-50%, 150%);
+  width: calc(100% - 32px);
+  max-width: 980px;
+  background: var(--color-white);
+  padding: 10px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   gap: var(--space-4);
   z-index: 10000;
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
 }
 
 .cookie-banner.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
-.cookie-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-1);
-}
-
-.cookie-header i {
-  color: var(--color-accent);
-  font-size: var(--text-base);
-}
-
-.cookie-header h5 {
-  margin-bottom: 0;
-  font-size: var(--text-sm);
-  font-weight: var(--font-semibold);
-  color: var(--color-white);
-  letter-spacing: 0.02em;
+.cookie-content {
+  flex: 1;
 }
 
 .cookie-content p {
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
   margin-bottom: 0;
+}
+
+.cookie-content strong {
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
 }
 
 .cookie-actions {
   display: flex;
-  gap: var(--space-3);
-  justify-content: flex-end;
-  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
 }
 
-.cookie-btn-decline {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.cookie-actions .btn {
   padding: 6px 14px;
+  font-size: 0.8rem;
+  min-height: 34px;
   border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: var(--font-medium);
-  cursor: pointer;
-  transition: all var(--transition-fast);
 }
 
-.cookie-btn-decline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-white);
-}
-
-.cookie-btn-accept {
-  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
-  color: var(--color-primary-dark);
-  border: none;
-  padding: 6px 18px;
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: var(--font-semibold);
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(219, 165, 129, 0.3);
-  transition: all var(--transition-fast);
-}
-
-.cookie-btn-accept:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(219, 165, 129, 0.4);
-}
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .cookie-banner {
-    bottom: 16px;
-    left: 16px;
-    width: calc(100% - 32px);
-    padding: var(--space-4);
+    bottom: var(--space-2);
+    width: calc(100% - 16px);
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .cookie-actions {
+    width: 100%;
+    justify-content: center;
   }
 }
 
