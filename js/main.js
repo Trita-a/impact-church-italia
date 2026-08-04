@@ -138,13 +138,31 @@ document.addEventListener('DOMContentLoaded', function () {
   progressBar.className = 'scroll-progress';
   document.body.prepend(progressBar);
 
-  function updateScrollProgress() {
+  // --- Scroll-to-Top Button ---
+  const scrollTopBtn = document.createElement('button');
+  scrollTopBtn.className = 'scroll-top-btn';
+  scrollTopBtn.setAttribute('aria-label', 'Torna in cima');
+  scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  document.body.appendChild(scrollTopBtn);
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function updateScrollUI() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = scrollPercent + '%';
+
+    // Show/hide scroll-to-top button after 400px
+    if (scrollTop > 400) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
   }
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  window.addEventListener('scroll', updateScrollUI, { passive: true });
 
   // --- Enhanced Scroll Reveal Observer (supports all animation types) ---
   const revealElements = document.querySelectorAll('.fade-in-up, .fade-in-scale, .slide-in-left, .slide-in-right, .stagger');
