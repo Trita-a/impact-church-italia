@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta name="description"
+        content="Supporta Impact Church Italia con le tue donazioni. La tua generosità ci aiuta a sostenere le attività sociali e spirituali a Città della Pieve.">
+
+    <!-- SEO Tags -->
+    <link rel="canonical" href="https://impactchurchitalia.com/donazioni.html">
+    <link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/donazioni.html">
+    <link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/giving.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Donazioni e Sostegno - Impact Church Italia">
+    <meta property="og:description"
+        content="Ogni contributo ci aiuta a fare la differenza. Scopri come puoi sostenere la nostra chiesa e i nostri progetti sociali.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://impactchurchitalia.com/donazioni.html">
+    <meta property="og:image" content="https://impactchurchitalia.com/images/og-image.jpg">
+
+    <title>Donazioni | Sostieni la Nostra Missione - Impact Church Italia</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+
+    <!-- HEAD_COMMON -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@1,400;1,500&display=swap"
+    rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+<!-- /HEAD_COMMON -->
+
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            Impact<span>Church</span>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+            <a href="partecipa.html" class="nav-link">Partecipa</a>
+            <a href="live.html" class="nav-link">Live</a>
+            <a href="donazioni.html" class="nav-link">Dona</a>
+            <a href="index.html#contatti" class="nav-link">Contatti</a>
+            <a href="en/giving.html" class="lang-switch">
+                <i class="fas fa-globe"></i>
+                EN
+            </a>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- /HEADER -->
+
+    <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+    <section class="hero hero-inner">
+        <div class="hero-bg"
+            style="background-image: url('images/giving-hero.webp');">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content fade-in-up">
+            <span class="hero-tagline">Sostienici</span>
+            <h1 class="hero-title">Donazioni</h1>
+        </div>
+    </section>
+
+    <!-- ========================================
+       INTRO SECTION
+       ======================================== -->
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2 class="section-title">Perché Donare</h2>
+                <div class="divider"></div>
+                <p style="font-size: var(--text-lg); color: var(--color-text-muted);">
+                    La tua generosità permette a Impact Church di continuare la sua missione: condividere il Vangelo,
+                    sostenere la comunità e fare la differenza nella vita delle persone. Ogni dono, grande o piccolo,
+                    ha un impatto eterno.
+                </p>
+            </div>
+
+            <div class="verse-highlight fade-in-up">
+                <p>"Ciascuno dia come ha deliberato in cuor suo; non di malavoglia, né per forza, perché Dio ama un
+                    donatore gioioso."</p>
+                <cite>— 2 Corinzi 9:7</cite>
+            </div>
+
+            <!-- Donation Options -->
+            <div class="donation-options">
+                <!-- Bank Transfer -->
+                <!-- Bank Transfer -->
+                <div class="donation-card fade-in-up">
+                    <div class="donation-card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h4>Bonifico Bancario</h4>
+                    <p>Il modo più diretto per sostenere la missione. Puoi effettuare un bonifico una tantum o
+                        impostare un versamento regolare.</p>
+                    <div class="donation-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Intestatario</span>
+                            <span class="detail-value">Impact Church Italia</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">IBAN</span>
+                            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                <span class="detail-value text-mono" id="iban-text">IT00 X000 0000 0000 0000 0000 000</span>
+                                <button type="button" id="copy-iban-btn" style="padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; border: 1px solid var(--color-border); background: var(--color-white); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; font-weight: 500;">
+                                    <i class="far fa-copy"></i> Copia IBAN
+                                </button>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Banca</span>
+                            <span class="detail-value">Nome Banca</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Causale</span>
+                            <span class="detail-value">Donazione liberale</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PayPal -->
+                <div class="donation-card fade-in-up">
+                    <div class="donation-card-icon">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <h4>PayPal</h4>
+                    <p>Un modo semplice e sicuro per donare online. Puoi usare PayPal anche se non hai un account.</p>
+                    <a href="#" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-6);">
+                        <i class="fab fa-paypal"></i>
+                        Dona con PayPal
+                    </a>
+                    <p
+                        style="font-size: var(--text-sm); margin-top: var(--space-4); color: var(--color-text-subtle); margin-bottom: 0;">
+                        Transazione sicura e immediata.
+                    </p>
+                </div>
+
+                <!-- In-Person -->
+                <div class="donation-card fade-in-up">
+                    <div class="donation-card-icon">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h4>Durante il Culto</h4>
+                    <p>Puoi portare la tua offerta direttamente durante i nostri culti domenicali nel momento dedicato.
+                    </p>
+                    <div class="donation-details" style="text-align: center;">
+                        <div class="detail-item">
+                            <span class="detail-label"><i class="fas fa-clock"></i> Quando</span>
+                            <span class="detail-value">Domenica 11:00 - 12:30</span>
+                        </div>
+                        <div class="detail-item" style="margin-top: var(--space-4);">
+                            <span class="detail-label"><i class="fas fa-map-marker-alt"></i> Dove</span>
+                            <span class="detail-value">Via Gino Bombagli, snc<br>06062 Città della Pieve (PG)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="trust-badges fade-in-up">
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Donazioni Sicure</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-heart"></i>
+                    <span>100% alla Missione</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-receipt"></i>
+                    <span>Ricevuta Fiscale</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       HOW WE USE SECTION
+       ======================================== -->
+    <section class="section bg-warm">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Come Vengono Usate le Donazioni</h2>
+            <p class="section-subtitle fade-in-up">La trasparenza è un valore fondamentale per noi.</p>
+
+            <div class="cards-grid stagger" style="max-width: 900px; margin: 0 auto;">
+                <div class="card icon-card hover-lift">
+                    <div class="icon-card-icon">
+                        <i class="fas fa-book-bible"></i>
+                    </div>
+                    <h4 class="card-title">Ministero e Insegnamento</h4>
+                    <p class="card-text">Supporto per i pastori, materiali didattici, e formazione biblica per la
+                        comunità.</p>
+                </div>
+
+                <div class="card icon-card hover-lift">
+                    <div class="icon-card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="card-title">Spese della Chiesa</h4>
+                    <p class="card-text">Affitto locale, utenze, manutenzione e tutto ciò che serve per mantenere uno
+                        spazio accogliente.</p>
+                </div>
+
+                <div class="card icon-card hover-lift">
+                    <div class="icon-card-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h4 class="card-title">Lavoro nel Sociale</h4>
+                    <p class="card-text">Aiuto a famiglie in difficoltà, progetti comunitari e iniziative di
+                        beneficenza.</p>
+                </div>
+
+                <div class="card icon-card hover-lift">
+                    <div class="icon-card-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h4 class="card-title">Missioni</h4>
+                    <p class="card-text">Supporto a missionari e progetti evangelistici in Italia e nel mondo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       CTA SECTION
+       ======================================== -->
+    <section class="section cta-section">
+        <div class="container fade-in-up">
+            <h2>Hai Domande?</h2>
+            <div class="divider"></div>
+            <p style="max-width: 600px; margin: 0 auto var(--space-8);">
+                Se hai domande sulle donazioni o vuoi sapere di più su come il tuo contributo fa la differenza,
+                non esitare a contattarci.
+            </p>
+            <a href="index.html#contatti" class="btn btn-primary btn-lg">
+                <i class="fas fa-envelope"></i>
+                Contattaci
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <!-- Main Footer Row -->
+        <div class="footer-main">
+            <!-- Brand Column -->
+            <div class="footer-brand">
+                <div class="footer-logo">Impact<span>Church</span></div>
+                <p class="footer-tagline">"Fede · Speranza · Amore"</p>
+            </div>
+
+            <!-- Info Column -->
+            <div class="footer-info">
+                <div class="footer-contact">
+                    <a href="mailto:giuseppejulia@libero.it" class="footer-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        giuseppejulia@libero.it
+                    </a>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Via Gino Bombagli, snc - 06062 Città della Pieve (PG)
+                    </span>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-clock"></i>
+                        Dom. 11:00 - 12:30
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom Row -->
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> Impact Church Italia | <a href="privacy.html"
+                    style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+
+            <!-- Social -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /FOOTER -->
+
+    <!-- MOBILE_NAV -->
+<nav class="mobile-nav">
+    <div class="mobile-nav-header">
+        <span class="mobile-nav-logo">Impact<span>Church</span></span>
+        <div class="menu-close">
+            <span class="close-lines"></span>
+        </div>
+    </div>
+
+    <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-link">
+            <span class="link-num">01</span>
+            <span class="link-text">Home</span>
+        </a>
+        <a href="chi-siamo.html" class="mobile-link">
+            <span class="link-num">02</span>
+            <span class="link-text">Chi Siamo</span>
+        </a>
+        <a href="partecipa.html" class="mobile-link">
+            <span class="link-num">03</span>
+            <span class="link-text">Partecipa</span>
+        </a>
+        <a href="live.html" class="mobile-link">
+            <span class="link-num">04</span>
+            <span class="link-text">Live</span>
+        </a>
+        <a href="donazioni.html" class="mobile-link">
+            <span class="link-num">05</span>
+            <span class="link-text">Dona</span>
+        </a>
+        <a href="index.html#contatti" class="mobile-link">
+            <span class="link-num">06</span>
+            <span class="link-text">Contatti</span>
+        </a>
+    </div>
+
+    <div class="mobile-nav-footer">
+        <div class="mobile-socials">
+            <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mobile-address">Via Gino Bombagli, snc - 06062 Città della Pieve (PG)</p>
+        <a href="en/giving.html" class="lang-switch-mobile">
+            <i class="fas fa-globe"></i> English
+        </a>
+    </div>
+</nav>
+<!-- /MOBILE_NAV -->
+
+    <!-- SCRIPTS_COMMON -->
+<script src="js/main.js"></script>
+<!-- /SCRIPTS_COMMON -->
+</body>
+
+</html>

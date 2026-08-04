@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta name="description"
+        content="Guarda le dirette streaming e l'archivio video di Impact Church Italia. Riascolta i sermoni e approfondisci la Parola di Dio.">
+
+    <!-- SEO Tags -->
+    <link rel="canonical" href="https://impactchurchitalia.com/live.html">
+    <link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/live.html">
+    <link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/live.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Live Streaming e Archivio Sermoni - Impact Church Italia">
+    <meta property="og:description"
+        content="Segui i nostri culti online e riproduci i sermoni passati della nostra comunità a Città della Pieve.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://impactchurchitalia.com/live.html">
+    <meta property="og:image" content="https://impactchurchitalia.com/images/og-image.jpg">
+
+    <title>Live | Video e Archivio Predicazioni - Impact Church Italia</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+
+    <!-- HEAD_COMMON -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@1,400;1,500&display=swap"
+    rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+<!-- /HEAD_COMMON -->
+
+    <style>
+        /* Page-specific styles for Sermons */
+        .sermon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: var(--space-8);
+        }
+
+        .sermon-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sermon-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .sermon-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            flex-shrink: 0;
+        }
+
+        .sermon-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .sermon-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(219, 165, 129, 0.9);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary-dark);
+            font-size: var(--text-2xl);
+            transition: all var(--transition-base);
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        .sermon-card:hover .sermon-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--color-accent);
+            box-shadow: 0 10px 30px rgba(219, 165, 129, 0.4);
+        }
+
+        .sermon-content {
+            padding: var(--space-6);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sermon-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            margin-bottom: var(--space-3);
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+        }
+
+        .sermon-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--space-1);
+        }
+
+        .sermon-meta i {
+            color: var(--color-accent);
+        }
+
+        .sermon-title {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-3);
+            line-height: 1.3;
+        }
+
+        .sermon-speaker {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+
+        .sermon-speaker-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            border: 2px solid var(--color-accent-light);
+            flex-shrink: 0;
+        }
+
+        .sermon-speaker-avatar.placeholder {
+            background-color: var(--color-bg-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-subtle);
+            font-size: var(--text-md);
+            border: 1px dashed var(--color-border);
+        }
+
+        .sermon-speaker-name {
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            color: var(--color-primary);
+        }
+
+        .sermon-actions {
+            display: flex;
+            gap: var(--space-3);
+            margin-top: auto;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--color-border-light);
+        }
+
+        .sermon-actions a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            font-weight: var(--font-medium);
+            transition: all var(--transition-fast);
+        }
+
+        .sermon-actions .btn-listen {
+            background: var(--color-bg-alt);
+            color: var(--color-text);
+            border: 1px solid transparent;
+        }
+
+        .sermon-actions .btn-listen:hover {
+            background: var(--color-white);
+            border-color: var(--color-border);
+        }
+
+        .sermon-actions .btn-watch {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--color-primary);
+            border: 1px solid var(--color-border);
+        }
+
+        .sermon-actions .btn-watch:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        /* Featured Sermon */
+        .featured-sermon {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--space-10);
+            align-items: center;
+            background: var(--color-primary);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-10);
+            margin-bottom: var(--space-16);
+            color: var(--color-white);
+        }
+
+        .featured-sermon-video {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .featured-sermon-video img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-sermon-content h3 {
+            color: var(--color-white);
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .featured-sermon-content .sermon-meta {
+            color: var(--color-text-subtle);
+        }
+
+        .featured-sermon-content p {
+            color: var(--color-text-subtle);
+            margin-bottom: var(--space-6);
+        }
+
+        .featured-sermon-content .sermon-speaker-name {
+            color: var(--color-white);
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            padding: var(--space-1) var(--space-4);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            margin-bottom: var(--space-4);
+        }
+
+        @media (max-width: 900px) {
+            .featured-sermon {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sermon-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-sermon {
+                padding: var(--space-6);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            Impact<span>Church</span>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+            <a href="partecipa.html" class="nav-link">Partecipa</a>
+            <a href="live.html" class="nav-link">Live</a>
+            <a href="donazioni.html" class="nav-link">Dona</a>
+            <a href="index.html#contatti" class="nav-link">Contatti</a>
+            <a href="en/live.html" class="lang-switch">
+                <i class="fas fa-globe"></i>
+                EN
+            </a>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- /HEADER -->
+
+    <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+    <section class="hero hero-inner">
+        <div class="hero-bg"
+            style="background-image: url('images/live-hero.webp');">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content fade-in-up">
+            <div class="live-badge"><span class="live-pulse-dot"></span> Canale Ufficiale</div>
+            <span class="hero-tagline">Diretta Streaming & Archivio</span>
+            <h1 class="hero-title">Impact Live</h1>
+            <p class="hero-subtitle">Unisciti alla nostra adorazione e ascolta la Parola, ovunque tu sia.</p>
+
+            <div class="hero-buttons">
+                <a href="#featured-video-container" class="btn btn-primary btn-lg">
+                    <i class="fas fa-play"></i>
+                    Guarda Ultima Live
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       SERMONS SECTION
+       ======================================== -->
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; max-width: 700px; margin: 0 auto var(--space-12);">
+                <h2 class="section-title">Riascolta le Live</h2>
+                <div class="divider"></div>
+                <p style="font-size: var(--text-lg); color: var(--color-text-muted);">
+                    Esplora il nostro archivio di predicazioni. Ogni sermone è un'opportunità per crescere nella fede
+                    e approfondire la conoscenza della Parola di Dio.
+                </p>
+            </div>
+
+            <!-- Featured Sermon -->
+            <div class="featured-sermon fade-in-up">
+                <div class="featured-sermon-video" id="featured-video-container">
+                    <img id="featured-video-img"
+                        src="images/live-stream-placeholder.webp"
+                        alt="Ultimo sermone">
+                    <a id="featured-play-btn" href="#" target="_blank" rel="noopener noreferrer"
+                        class="sermon-play-btn">
+                        <i class="fas fa-play" style="margin-left: 4px;"></i>
+                    </a>
+                </div>
+                <div class="featured-sermon-content">
+                    <span class="featured-badge"><i class="fas fa-star"></i> Ultima Live</span>
+                    <h3 id="featured-title">La Potenza della Fede</h3>
+                    <div class="sermon-meta" style="margin-bottom: var(--space-4);">
+                        <span id="featured-date"><i class="fas fa-calendar-alt"></i> 19 Gennaio 2026</span>
+                    </div>
+                    <p id="featured-desc">Scopri come la fede può trasformare la tua vita quotidiana e darti la forza
+                        per affrontare ogni
+                        sfida. Un messaggio di speranza e incoraggiamento.</p>
+                    <div id="featured-speaker" class="sermon-speaker" style="margin-bottom: var(--space-4);">
+                        <img src="images/pastor-giuseppe.webp" alt="Speaker" class="sermon-speaker-avatar"
+                            id="featured-speaker-avatar">
+                        <span class="sermon-speaker-name" id="featured-speaker-name">Giuseppe Capuano</span>
+                    </div>
+                    <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+                        <a id="featured-watch-btn" href="#" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">
+                            <i class="fas fa-play"></i> Guarda
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sermon Grid -->
+            <h3 style="margin-bottom: var(--space-8); text-align: center;">Live Recenti</h3>
+            <div id="sermon-grid-container" class="sermon-grid stagger">
+                <!-- Sermon 1 -->
+                <div class="sermon-card">
+                    <div class="sermon-thumbnail">
+                        <img src="images/sermon-thumb-1.webp"
+                            alt="Sermone">
+                        <div class="sermon-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-content">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 12 Gen 2026</span>
+                            <span><i class="fas fa-clock"></i> 38 min</span>
+                        </div>
+                        <h4 class="sermon-title">Camminare nella Luce</h4>
+                        <div class="sermon-speaker">
+                            <img src="images/pastor-giuseppe.webp" alt="Giuseppe Capuano" class="sermon-speaker-avatar">
+                            <span class="sermon-speaker-name">Giuseppe Capuano</span>
+                        </div>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn-listen"><i class="fas fa-headphones"></i> Ascolta</a>
+                            <a href="#" class="btn-watch"><i class="fas fa-video"></i> Guarda</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon 2 -->
+                <div class="sermon-card">
+                    <div class="sermon-thumbnail">
+                        <img src="images/sermon-thumb-2.webp"
+                            alt="Sermone">
+                        <div class="sermon-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-content">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 5 Gen 2026</span>
+                            <span><i class="fas fa-clock"></i> 42 min</span>
+                        </div>
+                        <h4 class="sermon-title">Un Nuovo Inizio</h4>
+                        <div class="sermon-speaker">
+                            <img src="images/pastor-giuseppe.webp" alt="Giuseppe Capuano" class="sermon-speaker-avatar">
+                            <span class="sermon-speaker-name">Giuseppe Capuano</span>
+                        </div>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn-listen"><i class="fas fa-headphones"></i> Ascolta</a>
+                            <a href="#" class="btn-watch"><i class="fas fa-video"></i> Guarda</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon 3 -->
+                <div class="sermon-card">
+                    <div class="sermon-thumbnail">
+                        <img src="images/sermon-thumb-3.webp"
+                            alt="Sermone">
+                        <div class="sermon-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-content">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 29 Dic 2025</span>
+                            <span><i class="fas fa-clock"></i> 35 min</span>
+                        </div>
+                        <h4 class="sermon-title">La Speranza del Natale</h4>
+                        <div class="sermon-speaker">
+                            <img src="images/gioele-capuano.webp" alt="Gioele Capuano" class="sermon-speaker-avatar">
+                            <span class="sermon-speaker-name">Gioele Capuano</span>
+                        </div>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn-listen"><i class="fas fa-headphones"></i> Ascolta</a>
+                            <a href="#" class="btn-watch"><i class="fas fa-video"></i> Guarda</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon 4 -->
+                <div class="sermon-card">
+                    <div class="sermon-thumbnail">
+                        <img src="images/sermon-thumb-4.webp"
+                            alt="Sermone">
+                        <div class="sermon-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-content">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 22 Dic 2025</span>
+                            <span><i class="fas fa-clock"></i> 40 min</span>
+                        </div>
+                        <h4 class="sermon-title">Prepara il Tuo Cuore</h4>
+                        <div class="sermon-speaker">
+                            <img src="images/pastor-giuseppe.webp" alt="Giuseppe Capuano" class="sermon-speaker-avatar">
+                            <span class="sermon-speaker-name">Giuseppe Capuano</span>
+                        </div>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn-listen"><i class="fas fa-headphones"></i> Ascolta</a>
+                            <a href="#" class="btn-watch"><i class="fas fa-video"></i> Guarda</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon 5 -->
+                <div class="sermon-card">
+                    <div class="sermon-thumbnail">
+                        <img src="images/sermon-thumb-5.webp"
+                            alt="Sermone">
+                        <div class="sermon-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-content">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 15 Dic 2025</span>
+                            <span><i class="fas fa-clock"></i> 37 min</span>
+                        </div>
+                        <h4 class="sermon-title">L'Amore che Trasforma</h4>
+                        <div class="sermon-speaker">
+                            <img src="images/julia-fleming.webp" alt="Julia Fleming" class="sermon-speaker-avatar">
+                            <span class="sermon-speaker-name">Julia Fleming</span>
+                        </div>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn-listen"><i class="fas fa-headphones"></i> Ascolta</a>
+                            <a href="#" class="btn-watch"><i class="fas fa-video"></i> Guarda</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon 6 -->
+                <div class="sermon-card">
+                    <div class="sermon-thumbnail">
+                        <img src="images/sermon-thumb-6.webp" alt="Sermone">
+                        <div class="sermon-play-btn">
+                            <i class="fas fa-play" style="margin-left: 4px;"></i>
+                        </div>
+                    </div>
+                    <div class="sermon-content">
+                        <div class="sermon-meta">
+                            <span><i class="fas fa-calendar-alt"></i> 8 Dic 2025</span>
+                            <span><i class="fas fa-clock"></i> 44 min</span>
+                        </div>
+                        <h4 class="sermon-title">Vivere con Proposito</h4>
+                        <div class="sermon-speaker">
+                            <img src="images/pastor-giuseppe.webp" alt="Giuseppe Capuano" class="sermon-speaker-avatar">
+                            <span class="sermon-speaker-name">Giuseppe Capuano</span>
+                        </div>
+                        <div class="sermon-actions">
+                            <a href="#" class="btn-listen"><i class="fas fa-headphones"></i> Ascolta</a>
+                            <a href="#" class="btn-watch"><i class="fas fa-video"></i> Guarda</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- ========================================
+       SUBSCRIBE SECTION
+       ======================================== -->
+    <section class="section cta-section">
+        <div class="container fade-in-up">
+            <h2>Non Perdere Nessun Sermone</h2>
+            <div class="divider"></div>
+            <p style="max-width: 600px; margin: 0 auto var(--space-8);">
+                Iscriviti al nostro canale YouTube per ricevere una notifica ogni volta che pubblichiamo un nuovo
+                sermone.
+            </p>
+            <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer"
+                class="btn btn-primary btn-lg">
+                <i class="fab fa-youtube"></i>
+                Iscriviti al Canale
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <!-- Main Footer Row -->
+        <div class="footer-main">
+            <!-- Brand Column -->
+            <div class="footer-brand">
+                <div class="footer-logo">Impact<span>Church</span></div>
+                <p class="footer-tagline">"Fede · Speranza · Amore"</p>
+            </div>
+
+            <!-- Info Column -->
+            <div class="footer-info">
+                <div class="footer-contact">
+                    <a href="mailto:giuseppejulia@libero.it" class="footer-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        giuseppejulia@libero.it
+                    </a>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Via Gino Bombagli, snc - 06062 Città della Pieve (PG)
+                    </span>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-clock"></i>
+                        Dom. 11:00 - 12:30
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom Row -->
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> Impact Church Italia | <a href="privacy.html"
+                    style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+
+            <!-- Social -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /FOOTER -->
+
+    <!-- MOBILE_NAV -->
+<nav class="mobile-nav">
+    <div class="mobile-nav-header">
+        <span class="mobile-nav-logo">Impact<span>Church</span></span>
+        <div class="menu-close">
+            <span class="close-lines"></span>
+        </div>
+    </div>
+
+    <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-link">
+            <span class="link-num">01</span>
+            <span class="link-text">Home</span>
+        </a>
+        <a href="chi-siamo.html" class="mobile-link">
+            <span class="link-num">02</span>
+            <span class="link-text">Chi Siamo</span>
+        </a>
+        <a href="partecipa.html" class="mobile-link">
+            <span class="link-num">03</span>
+            <span class="link-text">Partecipa</span>
+        </a>
+        <a href="live.html" class="mobile-link">
+            <span class="link-num">04</span>
+            <span class="link-text">Live</span>
+        </a>
+        <a href="donazioni.html" class="mobile-link">
+            <span class="link-num">05</span>
+            <span class="link-text">Dona</span>
+        </a>
+        <a href="index.html#contatti" class="mobile-link">
+            <span class="link-num">06</span>
+            <span class="link-text">Contatti</span>
+        </a>
+    </div>
+
+    <div class="mobile-nav-footer">
+        <div class="mobile-socials">
+            <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mobile-address">Via Gino Bombagli, snc - 06062 Città della Pieve (PG)</p>
+        <a href="en/live.html" class="lang-switch-mobile">
+            <i class="fas fa-globe"></i> English
+        </a>
+    </div>
+</nav>
+<!-- /MOBILE_NAV -->
+
+    <!-- SCRIPTS_COMMON -->
+<script src="js/main.js"></script>
+<!-- /SCRIPTS_COMMON -->
+</body>
+
+</html>

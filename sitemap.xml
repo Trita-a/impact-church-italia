@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home IT -->
+  <url>
+    <loc>https://impactchurchitalia.com/</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/"/>
+  </url>
+
+  <!-- Home EN -->
+  <url>
+    <loc>https://impactchurchitalia.com/en/</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/"/>
+  </url>
+
+  <!-- Chi Siamo IT -->
+  <url>
+    <loc>https://impactchurchitalia.com/chi-siamo.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/chi-siamo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/about-us.html"/>
+  </url>
+
+  <!-- About Us EN -->
+  <url>
+    <loc>https://impactchurchitalia.com/en/about-us.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/chi-siamo.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/about-us.html"/>
+  </url>
+
+  <!-- Partecipa IT -->
+  <url>
+    <loc>https://impactchurchitalia.com/partecipa.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/partecipa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/get-involved.html"/>
+  </url>
+
+  <!-- Get Involved EN -->
+  <url>
+    <loc>https://impactchurchitalia.com/en/get-involved.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/partecipa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/get-involved.html"/>
+  </url>
+
+  <!-- Live IT -->
+  <url>
+    <loc>https://impactchurchitalia.com/live.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/live.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/live.html"/>
+  </url>
+
+  <!-- Live EN -->
+  <url>
+    <loc>https://impactchurchitalia.com/en/live.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/live.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/live.html"/>
+  </url>
+
+  <!-- Donazioni IT -->
+  <url>
+    <loc>https://impactchurchitalia.com/donazioni.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/donazioni.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/giving.html"/>
+  </url>
+
+  <!-- Giving EN -->
+  <url>
+    <loc>https://impactchurchitalia.com/en/giving.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/donazioni.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/giving.html"/>
+  </url>
+
+</urlset>

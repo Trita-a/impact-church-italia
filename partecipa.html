@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <meta name="description"
+        content="Scopri come partecipare alla vita di Impact Church Italia: gruppi biblici, ministeri, Impact Youth e attività sociali a Città della Pieve.">
+
+    <!-- SEO Tags -->
+    <link rel="canonical" href="https://impactchurchitalia.com/partecipa.html">
+    <link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/partecipa.html">
+    <link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/get-involved.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Partecipa e Coinvolgiti - Impact Church Italia">
+    <meta property="og:description"
+        content="Unisciti ai nostri gruppi, servi nei ministeri o partecipa alle attività giovani e sociali.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://impactchurchitalia.com/partecipa.html">
+    <meta property="og:image" content="https://impactchurchitalia.com/images/og-image.jpg">
+
+    <title>Partecipa | Gruppi e Ministeri - Impact Church Italia</title>
+    <link rel="icon" type="image/png" href="images/logo-icon.png">
+
+    <!-- HEAD_COMMON -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@1,400;1,500&display=swap"
+    rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+<!-- /HEAD_COMMON -->
+
+    <style>
+        /* Page-specific styles */
+        .ministry-section {
+            padding: var(--space-16) 0;
+        }
+
+        .ministry-section:nth-child(even) {
+            background-color: var(--color-bg-alt);
+        }
+
+        .ministry-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+        }
+
+        .ministry-section:nth-child(even) .ministry-content .ministry-image {
+            order: 2;
+        }
+
+        .ministry-section:nth-child(even) .ministry-content .ministry-info {
+            order: 1;
+        }
+
+        .ministry-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .ministry-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .ministry-info h3 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .ministry-info p {
+            color: var(--color-text-muted);
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-6);
+            font-family: 'Lora', serif;
+            /* Consistent premium typography */
+            line-height: 1.6;
+        }
+
+        .ministry-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            margin-bottom: var(--space-6);
+        }
+
+        .ministry-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            /* Increased gap for better readability */
+        }
+
+        .ministry-feature i {
+            color: var(--color-accent);
+            font-size: var(--text-lg);
+        }
+
+        @media (max-width: 768px) {
+            .ministry-content {
+                grid-template-columns: 1fr;
+            }
+
+            .ministry-section:nth-child(even) .ministry-content .ministry-image,
+            .ministry-section:nth-child(even) .ministry-content .ministry-info {
+                order: initial;
+            }
+
+            .ministry-image img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            Impact<span>Church</span>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+            <a href="partecipa.html" class="nav-link">Partecipa</a>
+            <a href="live.html" class="nav-link">Live</a>
+            <a href="donazioni.html" class="nav-link">Dona</a>
+            <a href="index.html#contatti" class="nav-link">Contatti</a>
+            <a href="en/get-involved.html" class="lang-switch">
+                <i class="fas fa-globe"></i>
+                EN
+            </a>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- /HEADER -->
+
+    <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+    <section class="hero hero-inner">
+        <div class="hero-bg"
+            style="background-image: url('images/partecipa-hero.webp');">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content fade-in-up">
+            <span class="hero-tagline">Fai la Differenza</span>
+            <h1 class="hero-title">Partecipa con Noi</h1>
+        </div>
+    </section>
+
+    <!-- ========================================
+       INTRO SECTION
+       ======================================== -->
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container">
+            <div class="fade-in-up" style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <h2 class="section-title">Trova il Tuo Posto</h2>
+                <div class="divider"></div>
+                <p
+                    style="font-size: var(--text-lg); color: var(--color-text-muted); font-family: 'Lora', serif; line-height: 1.6;">
+                    Crediamo che ognuno abbia un ruolo unico da svolgere nella famiglia di Dio.
+                    Che tu voglia crescere nella fede, servire gli altri o semplicemente trovare una comunità,
+                    c'è un posto per te.
+                </p>
+            </div>
+
+            <!-- Quick Navigation -->
+            <div
+                style="display: flex; justify-content: center; gap: var(--space-4); margin-top: var(--space-10); flex-wrap: wrap;">
+                <a href="#gruppi" class="btn btn-outline">
+                    <i class="fas fa-users"></i>
+                    Gruppi
+                </a>
+                <a href="#ministeri" class="btn btn-outline">
+                    <i class="fas fa-hands-helping"></i>
+                    Ministeri
+                </a>
+                <a href="#youth" class="btn btn-outline">
+                    <i class="fas fa-bolt"></i>
+                    Impact Youth
+                </a>
+                <a href="#sociale" class="btn btn-outline">
+                    <i class="fas fa-heart"></i>
+                    Lavoro nel Sociale
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       GRUPPI SECTION
+       ======================================== -->
+    <section id="gruppi" class="ministry-section">
+        <div class="container">
+            <div class="ministry-content fade-in-up">
+                <div class="ministry-image">
+                    <img src="images/partecipa-accoglienza.webp"
+                        alt="Gruppo di studio biblico">
+                </div>
+                <div class="ministry-info">
+                    <h3>Gruppi</h3>
+                    <p>I nostri gruppi sono il cuore della nostra comunità. Sono luoghi dove puoi crescere nella fede,
+                        costruire relazioni autentiche e trovare supporto spirituale in un ambiente familiare e
+                        accogliente.</p>
+
+                    <div class="ministry-features">
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Studio biblico approfondito</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Preghiera e condivisione</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Comunione fraterna</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Incontri settimanali</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html#contatti" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i>
+                        Unisciti a un Gruppo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       MINISTERI SECTION
+       ======================================== -->
+    <section id="ministeri" class="ministry-section">
+        <div class="container">
+            <div class="ministry-content fade-in-up">
+                <div class="ministry-image">
+                    <img src="images/partecipa-musica.webp"
+                        alt="Servizio nella chiesa">
+                </div>
+                <div class="ministry-info">
+                    <h3>Ministeri</h3>
+                    <p>Ognuno ha ricevuto doni e talenti unici da Dio. I nostri ministeri ti offrono l'opportunità di
+                        usare questi doni per servire la chiesa e la comunità, facendo la differenza nella vita degli
+                        altri.</p>
+
+                    <div class="ministry-features">
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lode e Adorazione</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Accoglienza</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Media e Tecnologia</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Ministero per i Bambini</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html#contatti" class="btn btn-primary">
+                        <i class="fas fa-hands-helping"></i>
+                        Scopri Come Servire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       IMPACT YOUTH SECTION
+       ======================================== -->
+    <section id="youth" class="ministry-section">
+        <div class="container">
+            <div class="ministry-content fade-in-up">
+                <div class="ministry-image">
+                    <img src="images/partecipa-bambini.webp"
+                        alt="Giovani della chiesa">
+                </div>
+                <div class="ministry-info">
+                    <span
+                        style="display: inline-block; background: var(--color-accent); color: var(--color-primary-dark); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: var(--font-semibold); margin-bottom: var(--space-3);">
+                        <i class="fas fa-bolt"></i> Dal 2018
+                    </span>
+                    <h3>Impact Youth Italia</h3>
+                    <p>Un movimento nato per riunire i giovani delle varie chiese, incoraggiarli e spronarli nella fede.
+                        Impact Youth è uno spazio dove i giovani possono trovare la loro identità in Cristo e fare la
+                        differenza nel mondo.</p>
+
+                    <div class="ministry-features">
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Eventi e conferenze giovanili</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Comunità di giovani credenti</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Formazione e discepolato</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Outreach e missioni</span>
+                        </div>
+                    </div>
+
+                    <a href="mailto:giuseppejulia@libero.it" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Unisciti a Impact Youth
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       LAVORO NEL SOCIALE SECTION
+       ======================================== -->
+    <section id="sociale" class="ministry-section">
+        <div class="container">
+            <div class="ministry-content fade-in-up">
+                <div class="ministry-image">
+                    <img src="images/partecipa-volontariato.webp"
+                        alt="Volontariato e lavoro sociale">
+                </div>
+                <div class="ministry-info">
+                    <h3>Lavoro nel Sociale</h3>
+                    <p>Crediamo che la fede si debba manifestare attraverso azioni concrete di amore. Il nostro lavoro
+                        nel sociale mira a portare speranza e supporto pratico a chi ne ha bisogno nella nostra comunità
+                        locale.</p>
+
+                    <div class="ministry-features">
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Supporto a famiglie in difficoltà</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Progetti per anziani e disabili</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Attività per bambini e giovani</span>
+                        </div>
+                        <div class="ministry-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Iniziative comunitarie</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html#contatti" class="btn btn-primary">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        Scopri Come Aiutare
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       COLLABORA SECTION
+       ======================================== -->
+    <section class="section cta-section">
+        <div class="container fade-in-up">
+            <h2>Collabora con Noi</h2>
+            <div class="divider"></div>
+            <p
+                style="max-width: 600px; margin: 0 auto var(--space-8); font-family: 'Lora', serif; font-size: var(--text-lg); line-height: 1.6;">
+                Vuoi far parte del team? Siamo sempre alla ricerca di persone appassionate che vogliono servire Dio
+                e fare la differenza. Contattaci per scoprire come puoi essere coinvolto.
+            </p>
+            <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#contatti" class="btn btn-primary btn-lg">
+                    <i class="fas fa-envelope"></i>
+                    Contattaci
+                </a>
+                <a href="index.html#orari" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-church"></i>
+                    Visita Domenica
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <!-- Main Footer Row -->
+        <div class="footer-main">
+            <!-- Brand Column -->
+            <div class="footer-brand">
+                <div class="footer-logo">Impact<span>Church</span></div>
+                <p class="footer-tagline">"Fede · Speranza · Amore"</p>
+            </div>
+
+            <!-- Info Column -->
+            <div class="footer-info">
+                <div class="footer-contact">
+                    <a href="mailto:giuseppejulia@libero.it" class="footer-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        giuseppejulia@libero.it
+                    </a>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Via Gino Bombagli, snc - 06062 Città della Pieve (PG)
+                    </span>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-clock"></i>
+                        Dom. 11:00 - 12:30
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom Row -->
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> Impact Church Italia | <a href="privacy.html"
+                    style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+
+            <!-- Social -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /FOOTER -->
+
+    <!-- Scripts -->
+    <!-- MOBILE_NAV -->
+<nav class="mobile-nav">
+    <div class="mobile-nav-header">
+        <span class="mobile-nav-logo">Impact<span>Church</span></span>
+        <div class="menu-close">
+            <span class="close-lines"></span>
+        </div>
+    </div>
+
+    <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-link">
+            <span class="link-num">01</span>
+            <span class="link-text">Home</span>
+        </a>
+        <a href="chi-siamo.html" class="mobile-link">
+            <span class="link-num">02</span>
+            <span class="link-text">Chi Siamo</span>
+        </a>
+        <a href="partecipa.html" class="mobile-link">
+            <span class="link-num">03</span>
+            <span class="link-text">Partecipa</span>
+        </a>
+        <a href="live.html" class="mobile-link">
+            <span class="link-num">04</span>
+            <span class="link-text">Live</span>
+        </a>
+        <a href="donazioni.html" class="mobile-link">
+            <span class="link-num">05</span>
+            <span class="link-text">Dona</span>
+        </a>
+        <a href="index.html#contatti" class="mobile-link">
+            <span class="link-num">06</span>
+            <span class="link-text">Contatti</span>
+        </a>
+    </div>
+
+    <div class="mobile-nav-footer">
+        <div class="mobile-socials">
+            <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mobile-address">Via Gino Bombagli, snc - 06062 Città della Pieve (PG)</p>
+        <a href="en/get-involved.html" class="lang-switch-mobile">
+            <i class="fas fa-globe"></i> English
+        </a>
+    </div>
+</nav>
+<!-- /MOBILE_NAV -->
+
+    <!-- SCRIPTS_COMMON -->
+<script src="js/main.js"></script>
+<!-- /SCRIPTS_COMMON -->
+</body>
+
+</html>

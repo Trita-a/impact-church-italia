@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+  <meta name="description"
+    content="Impact Church è una comunità cristiana evangelica a Città della Pieve (Perugia). Partecipa ai nostri culti, scopri la nostra missione di fede, speranza e amore.">
+  <meta name="keywords"
+    content="chiesa evangelica, Città della Pieve, Perugia, Impact Church, comunità cristiana, Vangelo, fede cristiana, culto domenica">
+  <meta name="author" content="Impact Church Italia">
+
+  <!-- SEO Tags -->
+  <link rel="canonical" href="https://impactchurchitalia.com/">
+  <link rel="alternate" hreflang="it" href="https://impactchurchitalia.com/">
+  <link rel="alternate" hreflang="en" href="https://impactchurchitalia.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://impactchurchitalia.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Impact Church Italia - Fede, Speranza e Amore a Città della Pieve">
+  <meta property="og:description"
+    content="Benvenuti alla Impact Church, una comunità dedicata a condividere il messaggio trasformatore del Vangelo a Città della Pieve.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://impactchurchitalia.com/">
+  <meta property="og:image" content="https://impactchurchitalia.com/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Impact Church Italia - Fede, Speranza e Amore">
+  <meta name="twitter:description" content="Comunità cristiana evangelica a Città della Pieve (PG).">
+  <meta name="twitter:image" content="https://impactchurchitalia.com/images/og-image.jpg">
+
+  <title>Impact Church Italia | Chiesa Evangelica Città della Pieve</title>
+  <link rel="icon" type="image/png" href="images/logo-icon.png">
+
+  <!-- Structured Data: Church -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Impact Church Italia",
+    "url": "https://impactchurchitalia.com/",
+    "logo": "https://impactchurchitalia.com/images/logo-icon.png",
+    "image": "https://impactchurchitalia.com/images/hero-bg.webp",
+    "description": "Una chiesa evangelica a Città della Pieve dove le persone possono essere impattate e trasformate dal Vangelo.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Gino Bombagli, snc",
+      "addressLocality": "Città della Pieve",
+      "addressRegion": "PG",
+      "postalCode": "06062",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.95,
+      "longitude": 12.00
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Sunday",
+      "opens": "11:00",
+      "closes": "12:30"
+    },
+    "sameAs": [
+      "https://www.facebook.com/impactchurchit",
+      "https://www.instagram.com/impactchurchit",
+      "https://www.youtube.com/@impactchurchitalia"
+    ]
+  }
+  </script>
+
+  <!-- HEAD_COMMON -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@1,400;1,500&display=swap"
+    rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+<!-- /HEAD_COMMON -->
+  <!-- Leaflet Map Assets (Homepage only) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
+
+  <!-- PRELOADER -->
+<div id="preloader">
+    <div class="preloader-container">
+        <div class="reveal-text top">IMPACT</div>
+        <div class="reveal-line"></div>
+        <div class="reveal-text bottom">CHURCH</div>
+    </div>
+</div>
+<!-- /PRELOADER -->
+<!-- HEADER -->
+<header class="header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            Impact<span>Church</span>
+        </a>
+
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="chi-siamo.html" class="nav-link">Chi Siamo</a>
+            <a href="partecipa.html" class="nav-link">Partecipa</a>
+            <a href="live.html" class="nav-link">Live</a>
+            <a href="donazioni.html" class="nav-link">Dona</a>
+            <a href="index.html#contatti" class="nav-link">Contatti</a>
+            <a href="en/index.html" class="lang-switch">
+                <i class="fas fa-globe"></i>
+                EN
+            </a>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+<!-- /HEADER -->
+
+  <!-- ========================================
+       HERO SECTION - Minimal & Professional
+       ======================================== -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('images/hero-bg.webp');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-decorator fade-in-up delay-1"></div>
+      <span class="hero-tagline fade-in-up delay-2">Chiesa Evangelica a Città della Pieve</span>
+      <h1 class="hero-title fade-in-up delay-3">Fede · Speranza · Amore</h1>
+      <p class="hero-subtitle fade-in-up delay-4">"Conoscerete la verità e la verità vi farà liberi"</p>
+
+      <div class="hero-cta fade-in-up delay-5">
+        <a href="#orari" class="btn btn-primary btn-lg hero-btn-main">
+          Unisciti a noi Domenica
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="chi-siamo.html" class="hero-link">
+          Scopri di più <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <a href="#benvenuto" class="hero-scroll fade-in-up delay-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- ========================================
+       WELCOME SECTION
+       ======================================== -->
+  <section id="benvenuto" class="section welcome bg-cool-soft">
+    <div class="container">
+      <div class="welcome-content fade-in-up">
+        <h2 class="section-title">Benvenuti a Impact Church</h2>
+        <div class="divider"></div>
+
+        <p class="welcome-verse">
+          Questa chiesa è una chiesa evangelica che offre una celebrazione alternativa per coloro che cercano qualcosa
+          in più rispetto a ciò che offre la chiesa tradizionale. Crediamo che Dio ci parla attraverso la Bibbia e che
+          Lui vuole che viviamo amando Lui e gli altri.
+        </p>
+      </div>
+
+      <!-- Values Grid -->
+      <div class="values-grid stagger">
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-cross"></i>
+          </div>
+          <h4 class="value-title">Fede</h4>
+          <p class="value-text">Crediamo nella potenza trasformativa del Vangelo e nella presenza di Dio nella nostra
+            vita quotidiana.</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-dove"></i>
+          </div>
+          <h4 class="value-title">Speranza</h4>
+          <p class="value-text">Offriamo un messaggio di speranza e rinnovamento per tutti coloro che cercano un
+            significato più profondo.</p>
+        </div>
+
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h4 class="value-title">Amore</h4>
+          <p class="value-text">Siamo una comunità accogliente dove l'amore di Cristo si manifesta attraverso le nostre
+            azioni.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       LATEST LIVE SECTION
+       ======================================== -->
+  <section id="latest-live" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in-up">L'Ultima Live</h2>
+      <p class="section-subtitle fade-in-up">Guarda il nostro ultimo messaggio</p>
+      <div class="divider fade-in-up"></div>
+
+      <div class="live-preview-card fade-in-up" id="home-live-card" style="display: none;">
+        <div class="live-preview-content">
+          <div class="live-badge"><span class="live-pulse-dot"></span> Ultima Live</div>
+          <h3 class="live-title" id="home-live-title">Caricamento...</h3>
+          <p class="live-date" id="home-live-date"></p>
+          <a href="#" id="home-live-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fas fa-play"></i> Guarda Ora
+          </a>
+        </div>
+        <div class="live-preview-thumbnail">
+          <img src="" id="home-live-img" alt="Ultima Live">
+          <div class="play-overlay"><i class="fas fa-play"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       LEADERSHIP PREVIEW
+       ======================================== -->
+  <section class="section leadership-preview bg-warm">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Il Nostro Pastore</h2>
+      <p class="section-subtitle fade-in-up">Guidati dalla fede, uniti nella missione</p>
+      <div class="divider fade-in-up"></div>
+
+      <div class="leader-card fade-in-up">
+        <img src="images/pastor-giuseppe.webp" alt="Pastore Giuseppe Capuano" class="leader-image">
+        <div class="leader-info">
+          <h3>Giuseppe Capuano</h3>
+          <p class="leader-role">Pastore</p>
+          <p class="leader-bio">Giuseppe Capuano, nato a Napoli nel 1966, è stato ordinato Pastore nel 2001 a Salerno.
+            Nel 2011 si è trasferito a Città della Pieve insieme a sua moglie Julia per iniziare una nuova opera. Nel
+            2016 ha conseguito la Laurea in Scienze Bibliche e Teologiche dalla Facoltà Teologica di Roma.</p>
+          <a href="chi-siamo.html" class="btn btn-outline">
+            Conosci tutto il Team
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SERVICES SECTION (Gruppi & Ministeri)
+       ======================================== -->
+  <section id="servizi" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Partecipa con Noi</h2>
+      <p class="section-subtitle fade-in-up">Scopri come puoi essere parte della nostra comunità</p>
+      <div class="divider fade-in-up"></div>
+
+      <div class="cards-grid stagger">
+        <!-- Gruppi -->
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h4 class="card-title">Gruppi</h4>
+          <p class="card-text">Incontri settimanali per studiare la Bibbia, pregare insieme e crescere nella fede in un
+            ambiente familiare.</p>
+          <a href="partecipa.html#gruppi" class="card-link">
+            Scopri i gruppi
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Ministeri -->
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-hands-helping"></i>
+          </div>
+          <h4 class="card-title">Ministeri</h4>
+          <p class="card-text">Scopri come puoi servire nella chiesa utilizzando i tuoi doni e talenti per la gloria di
+            Dio.</p>
+          <a href="partecipa.html#ministeri" class="card-link">
+            Esplora i ministeri
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Impact Youth -->
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h4 class="card-title">Impact Youth</h4>
+          <p class="card-text">Un movimento che riunisce i giovani delle varie chiese per incoraggiarli e spronarli
+            nella fede.</p>
+          <a href="partecipa.html#youth" class="card-link">
+            Unisciti ai giovani
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Lavoro nel Sociale -->
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h4 class="card-title">Lavoro nel Sociale</h4>
+          <p class="card-text">Progetti e iniziative per aiutare la nostra comunità locale attraverso azioni concrete di
+            amore.</p>
+          <a href="partecipa.html#sociale" class="card-link">
+            Scopri come aiutare
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SCHEDULE SECTION
+       ======================================== -->
+  <section id="orari" class="section schedule bg-cool-soft">
+    <div class="container">
+      <div class="schedule-grid">
+        <div class="schedule-info fade-in-up">
+          <h2 class="section-title" style="text-align: left;">Quando Incontrarci</h2>
+          <div class="divider divider-left"></div>
+
+          <p class="schedule-day">Ogni Domenica</p>
+          <p class="schedule-time">11:00 - 12:30</p>
+
+          <p class="schedule-address">
+            <i class="fas fa-map-marker-alt"></i>
+            Via Gino Bombagli, snc<br>
+            06062 Città della Pieve (PG)<br>
+            Italia
+          </p>
+
+          <div class="schedule-actions">
+            <a href="https://maps.app.goo.gl/gN5LQZhKAfWsNHjk7" target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary">
+              <i class="fas fa-directions"></i>
+              Indicazioni
+            </a>
+            <a href="mailto:giuseppejulia@libero.it" class="btn btn-outline">
+              <i class="fas fa-envelope"></i>
+              Contattaci
+            </a>
+          </div>
+        </div>
+
+        <div class="schedule-map fade-in-up">
+          <div id="contact-map" style="height: 100%; width: 100%;"></div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       EVENTS SECTION
+       ======================================== -->
+  <section id="eventi" class="section bg-warm">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Prossimi Eventi</h2>
+      <p class="section-subtitle fade-in-up">Unisciti a noi per i nostri prossimi appuntamenti</p>
+      <div class="divider fade-in-up"></div>
+
+      <div class="cards-grid events-grid stagger">
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-church"></i>
+          </div>
+          <h4 class="card-title">Culto Domenicale</h4>
+          <p class="card-text">Ogni domenica dalle 11:00 alle 12:30. Lode, adorazione e predicazione della Parola.</p>
+          <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
+            <i class="fas fa-calendar-alt"></i> Ogni Domenica
+          </p>
+        </div>
+
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-book-bible"></i>
+          </div>
+          <h4 class="card-title">Studio Biblico</h4>
+          <p class="card-text">Approfondisci la tua conoscenza della Bibbia con noi in un ambiente accogliente.</p>
+          <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
+            <i class="fas fa-calendar-alt"></i> Mercoledì Sera
+          </p>
+        </div>
+
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h4 class="card-title">Incontro di Preghiera</h4>
+          <p class="card-text">Unisciti a noi per un momento di preghiera e intercessione per la comunità.</p>
+          <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
+            <i class="fas fa-calendar-alt"></i> Venerdì Sera
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CTA SECTION
+       ======================================== -->
+  <section class="section cta-section">
+    <div class="container fade-in-up">
+      <h2>Vieni a Trovarci</h2>
+      <div class="divider"></div>
+      <p>Che tu stia cercando risposte, una comunità accogliente, o semplicemente un luogo di pace, sei il benvenuto. Ti
+        aspettiamo domenica!</p>
+      <a href="#contatti" class="btn btn-primary btn-lg">
+        <i class="fas fa-church"></i>
+        Pianifica la tua Visita
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CONTACT SECTION
+       ======================================== -->
+  <section id="contatti" class="section bg-cool-soft">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Contattaci</h2>
+      <p class="section-subtitle fade-in-up">Hai domande? Siamo qui per te.</p>
+      <div class="divider fade-in-up"></div>
+
+      <div class="schedule-grid" style="gap: var(--space-16);">
+        <div class="fade-in-up">
+          <h4 style="margin-bottom: var(--space-6);">Informazioni di Contatto</h4>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <p class="contact-label">Email</p>
+                <a href="mailto:giuseppejulia@libero.it" class="contact-link">giuseppejulia@libero.it</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <p class="contact-label">Indirizzo</p>
+                <p class="contact-text">Via Gino Bombagli, snc - 06062 Città della Pieve (PG)</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <p class="contact-label">Culto Domenicale</p>
+                <p class="contact-text">Domenica 11:00 - 12:30</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="fade-in-up">
+          <h4 style="margin-bottom: var(--space-6);">Inviaci un Messaggio</h4>
+
+          <form id="main-content" class="contact-form" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <div class="form-row">
+              <div>
+                <label for="contact-name" class="visually-hidden">Il tuo nome</label>
+                <input type="text" id="contact-name" name="name" placeholder="Il tuo nome" required class="contact-form-field">
+              </div>
+              <div>
+                <label for="contact-email" class="visually-hidden">La tua email</label>
+                <input type="email" id="contact-email" name="email" placeholder="La tua email" required class="contact-form-field">
+              </div>
+            </div>
+            <label for="contact-subject" class="visually-hidden">Oggetto</label>
+            <input type="text" id="contact-subject" name="subject" placeholder="Oggetto" class="contact-form-field">
+            <label for="contact-message" class="visually-hidden">Il tuo messaggio</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Il tuo messaggio" required class="contact-form-field"></textarea>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i>
+              Invia Messaggio
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <!-- Main Footer Row -->
+        <div class="footer-main">
+            <!-- Brand Column -->
+            <div class="footer-brand">
+                <div class="footer-logo">Impact<span>Church</span></div>
+                <p class="footer-tagline">"Fede · Speranza · Amore"</p>
+            </div>
+
+            <!-- Info Column -->
+            <div class="footer-info">
+                <div class="footer-contact">
+                    <a href="mailto:giuseppejulia@libero.it" class="footer-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        giuseppejulia@libero.it
+                    </a>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Via Gino Bombagli, snc - 06062 Città della Pieve (PG)
+                    </span>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-contact-link">
+                        <i class="fas fa-clock"></i>
+                        Dom. 11:00 - 12:30
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="footer-divider"></div>
+
+        <!-- Bottom Row -->
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> Impact Church Italia | <a href="privacy.html"
+                    style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+
+            <!-- Social -->
+            <div class="footer-social">
+                <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+                        class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /FOOTER -->
+
+  <!-- MOBILE_NAV -->
+<nav class="mobile-nav">
+    <div class="mobile-nav-header">
+        <span class="mobile-nav-logo">Impact<span>Church</span></span>
+        <div class="menu-close">
+            <span class="close-lines"></span>
+        </div>
+    </div>
+
+    <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-link">
+            <span class="link-num">01</span>
+            <span class="link-text">Home</span>
+        </a>
+        <a href="chi-siamo.html" class="mobile-link">
+            <span class="link-num">02</span>
+            <span class="link-text">Chi Siamo</span>
+        </a>
+        <a href="partecipa.html" class="mobile-link">
+            <span class="link-num">03</span>
+            <span class="link-text">Partecipa</span>
+        </a>
+        <a href="live.html" class="mobile-link">
+            <span class="link-num">04</span>
+            <span class="link-text">Live</span>
+        </a>
+        <a href="donazioni.html" class="mobile-link">
+            <span class="link-num">05</span>
+            <span class="link-text">Dona</span>
+        </a>
+        <a href="index.html#contatti" class="mobile-link">
+            <span class="link-num">06</span>
+            <span class="link-text">Contatti</span>
+        </a>
+    </div>
+
+    <div class="mobile-nav-footer">
+        <div class="mobile-socials">
+            <a href="https://www.facebook.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/impactchurchit" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@impactchurchitalia" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="mobile-address">Via Gino Bombagli, snc - 06062 Città della Pieve (PG)</p>
+        <a href="en/index.html" class="lang-switch-mobile">
+            <i class="fas fa-globe"></i> English
+        </a>
+    </div>
+</nav>
+<!-- /MOBILE_NAV -->
+
+  <!-- Scripts -->
+  <!-- SCRIPTS_COMMON -->
+<script src="js/main.js"></script>
+<!-- /SCRIPTS_COMMON -->
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+# System & OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Local test servers & logs
+*.log
+tools/*.exe
