@@ -2255,11 +2255,10 @@ textarea.contact-form-field {
   }
 
   .hero-title {
-    white-space: normal;
-    word-break: keep-all;
-    font-size: clamp(1.05rem, 4.8vw, 1.6rem);
+    white-space: nowrap;
+    font-size: clamp(0.95rem, 4.3vw, 1.5rem);
     text-align: center;
-    line-height: 1.25;
+    line-height: 1.2;
     margin-bottom: var(--space-4);
   }
 
