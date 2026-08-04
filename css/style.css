@@ -2249,16 +2249,13 @@ textarea.contact-form-field {
     width: 100%;
   }
 
-  .hero-content {
-    padding: var(--space-4);
-    width: 100%;
-  }
-
+  /* Hero Mobile Typography Optimization - Elegant Wrapping */
   .hero-title {
-    white-space: nowrap;
-    font-size: clamp(0.95rem, 4.3vw, 1.5rem);
+    white-space: normal;
+    font-size: clamp(2.1rem, 8.5vw, 2.8rem);
     text-align: center;
-    line-height: 1.2;
+    text-wrap: balance;
+    line-height: 1.18;
     margin-bottom: var(--space-4);
   }
 
