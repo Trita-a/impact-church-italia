@@ -275,18 +275,25 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', highlightActiveNav);
 
   // ========================================
-  // Parallax Effect for Hero (Optional)
+  // Parallax Effect for Hero (Desktop Only, RAF Throttled)
   // ========================================
   const heroSection = document.querySelector('.hero');
   const heroBg = document.querySelector('.hero-bg');
 
-  if (heroSection && heroBg) {
+  if (heroSection && heroBg && window.innerWidth > 768) {
+    let ticking = false;
     window.addEventListener('scroll', function () {
-      const scrolled = window.scrollY;
-      if (scrolled < heroSection.offsetHeight) {
-        heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          if (scrolled <= heroSection.offsetHeight) {
+            heroBg.style.transform = `translateY(${scrolled * 0.25}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
+    }, { passive: true });
   }
 
   // ========================================
