@@ -1017,7 +1017,7 @@ p {
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 6vw, var(--text-6xl));
+  font-size: clamp(1.85rem, 6vw, var(--text-6xl));
   color: var(--color-white);
   margin-bottom: var(--space-5);
   line-height: 1.15;
