@@ -2254,12 +2254,12 @@ textarea.contact-form-field {
     width: 100%;
   }
 
-  /* Hero Mobile Typography Optimization - Single Line Elegant Title */
   .hero-title {
-    white-space: nowrap;
-    font-size: clamp(1.15rem, 5.3vw, 1.8rem);
+    white-space: normal;
+    word-break: keep-all;
+    font-size: clamp(1.05rem, 4.8vw, 1.6rem);
     text-align: center;
-    line-height: 1.18;
+    line-height: 1.25;
     margin-bottom: var(--space-4);
   }
 
