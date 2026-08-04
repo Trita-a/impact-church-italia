@@ -130,26 +130,104 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ========================================
-  // Scroll Reveal Animations
+  // Immersive Animation Engine
   // ========================================
-  const revealElements = document.querySelectorAll('.fade-in-up, .stagger');
+
+  // --- Scroll Progress Indicator ---
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.prepend(progressBar);
+
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+  // --- Enhanced Scroll Reveal Observer (supports all animation types) ---
+  const revealElements = document.querySelectorAll('.fade-in-up, .fade-in-scale, .slide-in-left, .slide-in-right, .stagger');
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Optional: stop observing after reveal
-        // revealObserver.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
   });
 
   revealElements.forEach(el => {
     revealObserver.observe(el);
   });
+
+  // --- Divider Reveal Observer ---
+  const dividers = document.querySelectorAll('.divider');
+  const dividerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        dividerObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  dividers.forEach(d => dividerObserver.observe(d));
+
+  // --- Hero Floating Particles ---
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) {
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'hero-particles';
+    heroEl.appendChild(particleContainer);
+
+    const particleCount = window.innerWidth < 768 ? 18 : 35;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'hero-particle';
+      const size = Math.random() * 3.5 + 2.5;
+      const duration = Math.random() * 12 + 10;
+      const delay = -(Math.random() * duration); // Negative delay distributes particles instantly across height
+      const targetOpacity = (Math.random() * 0.5 + 0.3).toFixed(2);
+
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = duration + 's';
+      particle.style.animationDelay = delay + 's';
+      particle.style.setProperty('--particle-opacity', targetOpacity);
+      particleContainer.appendChild(particle);
+    }
+  }
+
+  // --- Magnetic Card Tilt Effect (desktop only) ---
+  if (window.innerWidth > 768) {
+    const cards = document.querySelectorAll('.card, .donation-card, .value-item');
+
+    cards.forEach(card => {
+      card.classList.add('magnetic-tilt');
+
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
 
   // ========================================
   // Active Navigation Highlighting

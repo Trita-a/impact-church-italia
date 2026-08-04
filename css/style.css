@@ -2352,14 +2352,28 @@ textarea.contact-form-field {
 }
 
 /* ========================================
-   12. ANIMATIONS
+   12. IMMERSIVE ANIMATIONS SYSTEM
    ======================================== */
 
-/* Fade In Up */
+/* --- Scroll Progress Indicator --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  z-index: 10001;
+  transition: none;
+  box-shadow: 0 0 10px rgba(219, 165, 129, 0.5);
+}
+
+/* --- Fade In Up (enhanced with cubic bezier) --- */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .fade-in-up.visible {
@@ -2367,32 +2381,259 @@ textarea.contact-form-field {
   transform: translateY(0);
 }
 
-/* Stagger children */
-.stagger>* {
+/* --- Fade In Scale (zoom-in reveal) --- */
+.fade-in-scale {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: scale(0.92);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stagger.visible>*:nth-child(1) {
-  transition-delay: 0.1s;
+.fade-in-scale.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.stagger.visible>*:nth-child(2) {
-  transition-delay: 0.2s;
+/* --- Slide In from Left --- */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stagger.visible>*:nth-child(3) {
-  transition-delay: 0.3s;
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.stagger.visible>*:nth-child(4) {
-  transition-delay: 0.4s;
+/* --- Slide In from Right --- */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stagger.visible>* {
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Stagger Children (enhanced) --- */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger.visible > *:nth-child(1) { transition-delay: 0.08s; }
+.stagger.visible > *:nth-child(2) { transition-delay: 0.18s; }
+.stagger.visible > *:nth-child(3) { transition-delay: 0.28s; }
+.stagger.visible > *:nth-child(4) { transition-delay: 0.38s; }
+.stagger.visible > *:nth-child(5) { transition-delay: 0.48s; }
+.stagger.visible > *:nth-child(6) { transition-delay: 0.58s; }
+
+.stagger.visible > * {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* --- Hero Floating Particles --- */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-particle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(219, 165, 129, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat linear infinite;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  15% { opacity: var(--particle-opacity, 0.7); }
+  85% { opacity: var(--particle-opacity, 0.7); }
+  100% {
+    transform: translateY(-10vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* --- Section Divider Reveal Animation --- */
+.divider {
+  width: 0;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.divider.visible,
+.fade-in-up.visible .divider,
+section.in-view .divider {
+  width: 60px;
+}
+
+/* --- Magnetic Card Tilt Effect (applied via JS) --- */
+.card.magnetic-tilt {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+}
+
+.card.magnetic-tilt:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Animated Counter --- */
+.counter-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* --- Hero Content Stagger Delays --- */
+.hero-content .delay-1 { transition-delay: 0.15s; }
+.hero-content .delay-2 { transition-delay: 0.35s; }
+.hero-content .delay-3 { transition-delay: 0.55s; }
+.hero-content .delay-4 { transition-delay: 0.75s; }
+.hero-content .delay-5 { transition-delay: 0.95s; }
+.hero-content .delay-6 { transition-delay: 1.15s; }
+
+/* --- Glow Pulse on Value Icons --- */
+.value-icon {
+  position: relative;
+}
+
+.value-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle, rgba(219, 165, 129, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.value-item:hover .value-icon::after {
+  opacity: 1;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.2; }
+}
+
+/* --- Smooth Image Reveal on Scroll --- */
+.leader-image,
+.team-card-image {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s ease;
+  filter: saturate(0.85);
+}
+
+.fade-in-up.visible .leader-image,
+.fade-in-up.visible .team-card-image,
+.leader-image:hover,
+.team-card-image:hover {
+  filter: saturate(1);
+}
+
+/* --- Section Background Gradient Shift (subtle ambient feel) --- */
+.bg-cool-soft {
+  background: linear-gradient(180deg, #f5f7fa 0%, #e8ecf1 100%);
+  position: relative;
+}
+
+.bg-warm {
+  background: linear-gradient(180deg, var(--color-warm) 0%, #f5ebe0 100%);
+}
+
+/* --- Scroll-triggered Section Title Underline --- */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+  transform-origin: center;
+}
+
+.fade-in-up.visible .section-title::after,
+.section-title.visible::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* --- Smooth CTA Button Ripple Effect --- */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* --- Respect user preference for reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in-scale,
+  .slide-in-left,
+  .slide-in-right,
+  .stagger > * {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .hero-particle { animation: none !important; }
+  .scroll-progress { display: none; }
+  .divider { width: 60px; transition: none; }
 }
 
 
