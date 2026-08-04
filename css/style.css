@@ -944,9 +944,10 @@ p {
    ======================================== */
 .hero {
   position: relative;
-  height: 100dvh;
-  /* Dynamic height for mobile */
-  min-height: 65vh;
+  height: 100vh;
+  height: 100svh;
+  /* Static height on mobile (prevents Chrome address bar collapse snap) */
+  min-height: 520px;
   display: flex;
   align-items: center;
   justify-content: center;
