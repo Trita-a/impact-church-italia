@@ -2458,8 +2458,8 @@ textarea.contact-form-field {
   left: 0;
   width: 3px;
   height: 3px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(219, 165, 129, 0.25);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5), 0 0 12px rgba(219, 165, 129, 0.35);
   border-radius: 50%;
   opacity: 0;
   animation: particleFloat linear infinite;

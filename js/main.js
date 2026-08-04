@@ -184,18 +184,15 @@ document.addEventListener('DOMContentLoaded', function () {
     particleContainer.className = 'hero-particles';
     heroEl.appendChild(particleContainer);
 
-    const isMobile = window.innerWidth < 768;
-    const particleCount = isMobile ? 12 : 30;
+    const particleCount = window.innerWidth < 768 ? 18 : 35;
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'hero-particle';
-      const size = isMobile ? (Math.random() * 1.5 + 1.2) : (Math.random() * 2 + 1.8);
-      const duration = Math.random() * 14 + 10;
+      const size = Math.random() * 2.5 + 2;
+      const duration = Math.random() * 12 + 10;
       const delay = -(Math.random() * duration); // Negative delay distributes particles instantly across height
-      const targetOpacity = isMobile 
-        ? (Math.random() * 0.2 + 0.12).toFixed(2) 
-        : (Math.random() * 0.25 + 0.2).toFixed(2);
+      const targetOpacity = (Math.random() * 0.3 + 0.25).toFixed(2);
 
       particle.style.width = size + 'px';
       particle.style.height = size + 'px';
