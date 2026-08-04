@@ -999,34 +999,35 @@ p {
 /* Kicker Label style */
 .hero-tagline {
   display: inline-block;
-  font-size: var(--text-xs);
+  font-size: clamp(0.7rem, 2.5vw, var(--text-xs));
   font-weight: var(--font-bold);
   color: var(--color-accent);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: var(--space-4);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-wrap: balance;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, var(--text-6xl));
+  font-size: clamp(1.5rem, 5.5vw, var(--text-6xl));
   color: var(--color-white);
   margin-bottom: var(--space-6);
-  line-height: 1.1;
+  line-height: 1.15;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  white-space: nowrap;
+  text-wrap: balance;
+  word-break: keep-all;
 }
 
 .hero-subtitle {
-  font-size: var(--text-xl);
+  font-size: clamp(1rem, 3vw, var(--text-xl));
   font-style: italic;
   opacity: 0.95;
   margin-bottom: var(--space-10);
   font-family: 'Lora', serif;
-  /* More legible italic */
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: 400;
-  /* Increased from 300 for clarity */
+  text-wrap: balance;
 }
 
 .hero-buttons {
@@ -2238,24 +2239,38 @@ textarea.contact-form-field {
     width: 100%;
   }
 
-  /* Hero Mobile Improvements */
+  /* Hero Mobile Typography Optimization */
   .hero-title {
     white-space: normal;
-    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    font-size: clamp(1.45rem, 6.2vw, 2.2rem);
     text-align: center;
+    text-wrap: balance;
+    word-break: keep-all;
+    line-height: 1.25;
+    margin-bottom: var(--space-4);
   }
 
   .hero-tagline {
-    font-size: var(--text-sm);
-    letter-spacing: 0.15em;
+    font-size: clamp(0.68rem, 3.2vw, 0.85rem);
+    letter-spacing: 0.08em;
+    text-wrap: balance;
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-3);
   }
 
   .hero-subtitle {
-    font-size: var(--text-lg);
+    font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+    text-wrap: balance;
+    line-height: 1.5;
+    margin-bottom: var(--space-8);
   }
 
   .hero-content {
-    padding-top: var(--space-16);
+    padding-top: var(--space-12);
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
   }
 
   .btn {
