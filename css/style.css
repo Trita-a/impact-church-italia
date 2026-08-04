@@ -2249,12 +2249,11 @@ textarea.contact-form-field {
     width: 100%;
   }
 
-  /* Hero Mobile Typography Optimization - Modern Pill Badge & Prominent Title */
+  /* Hero Mobile Typography Optimization - Single Line Elegant Title */
   .hero-title {
-    white-space: normal;
-    font-size: clamp(2.1rem, 8.5vw, 2.8rem);
+    white-space: nowrap;
+    font-size: clamp(1.4rem, 6.2vw, 2.2rem);
     text-align: center;
-    text-wrap: balance;
     line-height: 1.18;
     margin-bottom: var(--space-4);
   }
