@@ -145,27 +145,41 @@
   <!-- ========================================
        HERO SECTION - Minimal & Professional
        ======================================== -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image: url('images/hero-bg.webp');"></div>
+  <section class="hero" id="hero">
+    <div class="hero-slider" aria-label="Galleria foto di copertina Impact Church" role="region">
+      <div class="hero-slide active" style="background-image: url('images/hero-1.webp');" role="img" aria-label="Adorazione dal vivo con cantanti, chitarra acustica e croce illuminata sul palco"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-2.webp');" role="img" aria-label="Comunione fraterna e famiglia a tavola"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-3.webp');" role="img" aria-label="Momento musicale al pianoforte durante la lode e adorazione"></div>
+      <div class="hero-slide" style="background-image: url('images/hero-4.webp');" role="img" aria-label="Impact Youth giovani della chiesa"></div>
+    </div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-tagline fade-in-up delay-1">Chiesa Evangelica · Città della Pieve</span>
-      <h1 class="hero-title fade-in-up delay-2">Fede&nbsp;· Speranza&nbsp;· Amore</h1>
-      <p class="hero-subtitle fade-in-up delay-3">"Conoscerete la verità e la verità vi farà liberi"</p>
+      <span class="hero-tagline fade-in-up delay-1">
+        <i class="fas fa-church"></i> Chiesa Evangelica · Città della Pieve
+      </span>
+      <h1 class="hero-title fade-in-up delay-2">
+        Fede <span class="hero-title-sep">·</span> Speranza <span class="hero-title-sep">·</span> Amore
+      </h1>
+      <p class="hero-subtitle fade-in-up delay-3">
+        «Conoscerete la verità e la verità vi farà liberi»<br>
+        <span class="hero-verse-ref">— Giovanni 8:32</span>
+      </p>
 
       <div class="hero-cta fade-in-up delay-5">
-        <a href="#orari" class="btn btn-primary btn-lg hero-btn-main">
-          Unisciti a noi Domenica
+        <a href="#orari" class="btn btn-hero-main">
+          <span>Unisciti a noi Domenica</span>
           <i class="fas fa-arrow-right"></i>
         </a>
         <a href="chi-siamo.html" class="hero-link">
-          Scopri di più <i class="fas fa-chevron-right"></i>
+          <span>Scopri chi siamo</span>
+          <i class="fas fa-chevron-right"></i>
         </a>
       </div>
     </div>
 
-    <a href="#benvenuto" class="hero-scroll fade-in-up delay-6">
+    <!-- Indicatore di scorrimento verso il basso ripristinato -->
+    <a href="#benvenuto" class="hero-scroll fade-in-up delay-6" aria-label="Scorri giù verso la sezione di benvenuto">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>

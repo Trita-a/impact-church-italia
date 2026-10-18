@@ -145,27 +145,41 @@
   <!-- ========================================
        HERO SECTION - Minimal & Professional
        ======================================== -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image: url('../images/hero-bg.webp');"></div>
+  <section class="hero" id="hero">
+    <div class="hero-slider" aria-label="Impact Church Hero Gallery" role="region">
+      <div class="hero-slide active" style="background-image: url('../images/hero-1.webp');" role="img" aria-label="Live worship with singers, acoustic guitar and illuminated cross on stage"></div>
+      <div class="hero-slide" style="background-image: url('../images/hero-2.webp');" role="img" aria-label="Fellowship and church family gathering"></div>
+      <div class="hero-slide" style="background-image: url('../images/hero-3.webp');" role="img" aria-label="Live keyboard worship and praise moment"></div>
+      <div class="hero-slide" style="background-image: url('../images/hero-4.webp');" role="img" aria-label="Impact Youth church community"></div>
+    </div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-tagline fade-in-up delay-1">Evangelical Church · Città della Pieve</span>
-      <h1 class="hero-title fade-in-up delay-2">Faith&nbsp;· Hope&nbsp;· Love</h1>
-      <p class="hero-subtitle fade-in-up delay-3">"You shall know the truth, and the truth shall set you free"</p>
+      <span class="hero-tagline fade-in-up delay-1">
+        <i class="fas fa-church"></i> Evangelical Church · Città della Pieve
+      </span>
+      <h1 class="hero-title fade-in-up delay-2">
+        Faith <span class="hero-title-sep">·</span> Hope <span class="hero-title-sep">·</span> Love
+      </h1>
+      <p class="hero-subtitle fade-in-up delay-3">
+        "You shall know the truth, and the truth shall set you free"<br>
+        <span class="hero-verse-ref">— John 8:32</span>
+      </p>
 
       <div class="hero-cta fade-in-up delay-5">
-        <a href="#orari" class="btn btn-primary btn-lg hero-btn-main">
-          Join us on Sunday
+        <a href="#orari" class="btn btn-hero-main">
+          <span>Join us on Sunday</span>
           <i class="fas fa-arrow-right"></i>
         </a>
         <a href="about-us.html" class="hero-link">
-          Learn More <i class="fas fa-chevron-right"></i>
+          <span>About us</span>
+          <i class="fas fa-chevron-right"></i>
         </a>
       </div>
     </div>
 
-    <a href="#benvenuto" class="hero-scroll fade-in-up delay-6">
+    <!-- Restored Scroll Down Indicator Arrow -->
+    <a href="#benvenuto" class="hero-scroll fade-in-up delay-6" aria-label="Scroll down to welcome section">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>

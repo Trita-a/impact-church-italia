@@ -13,3 +13,6 @@ Thumbs.db
 # Local test servers & logs
 *.log
 tools/*.exe
+
+# Raw photos
+FOTO/

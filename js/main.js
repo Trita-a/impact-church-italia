@@ -195,31 +195,83 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.5 });
   dividers.forEach(d => dividerObserver.observe(d));
 
-  // --- Hero Floating Particles ---
-  const heroEl = document.querySelector('.hero');
-  if (heroEl) {
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'hero-particles';
-    heroEl.appendChild(particleContainer);
+  // --- Hero Background Slider (Continuous Smooth Crossfade) ---
+  const heroSlider = document.querySelector('.hero-slider');
+  if (heroSlider) {
+    const slides = heroSlider.querySelectorAll('.hero-slide');
+    const indicators = document.querySelectorAll('.hero-indicator');
+    let currentIndex = 0;
+    let slideInterval = null;
+    const intervalTime = 6000;
 
-    const particleCount = window.innerWidth < 768 ? 18 : 35;
+    function goToSlide(index) {
+      if (slides.length <= 1) return;
+      const prevIndex = currentIndex;
+      currentIndex = (index + slides.length) % slides.length;
 
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'hero-particle';
-      const size = Math.random() * 2.5 + 2;
-      const duration = Math.random() * 12 + 10;
-      const delay = -(Math.random() * duration); // Negative delay distributes particles instantly across height
-      const targetOpacity = (Math.random() * 0.3 + 0.25).toFixed(2);
+      // Keep previous slide visible underneath (prev-slide) during crossfade
+      slides.forEach((s, i) => {
+        if (i === prevIndex) {
+          s.classList.remove('active');
+          s.classList.add('prev-slide');
+        } else if (i === currentIndex) {
+          s.classList.add('active');
+          s.classList.remove('prev-slide');
+        } else {
+          s.classList.remove('active', 'prev-slide');
+        }
+      });
 
-      particle.style.width = size + 'px';
-      particle.style.height = size + 'px';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDuration = duration + 's';
-      particle.style.animationDelay = delay + 's';
-      particle.style.setProperty('--particle-opacity', targetOpacity);
-      particleContainer.appendChild(particle);
+      // Update indicators if present
+      if (indicators.length > 0) {
+        indicators.forEach((ind, i) => {
+          ind.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      // Remove prev-slide after crossfade completes (1.8s)
+      setTimeout(() => {
+        if (slides[prevIndex] && prevIndex !== currentIndex) {
+          slides[prevIndex].classList.remove('prev-slide');
+        }
+      }, 1900);
     }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function startSlider() {
+      if (slideInterval) clearInterval(slideInterval);
+      slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopSlider() {
+      if (slideInterval) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+      }
+    }
+
+    if (indicators.length > 0) {
+      indicators.forEach((indicator, idx) => {
+        indicator.addEventListener('click', () => {
+          goToSlide(idx);
+          startSlider();
+        });
+      });
+    }
+
+    // Only pause when tab is hidden, NOT on mouseenter (ensures continuous smooth background transitions)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopSlider();
+      } else {
+        startSlider();
+      }
+    });
+
+    startSlider();
   }
 
   // --- Magnetic Card Tilt Effect (desktop only) ---
@@ -762,4 +814,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initSermons();
   initHomeLive();
   initMap();
+
+  // --- IBAN Copy to Clipboard (Giving Page) ---
+  const copyBtn = document.getElementById('copy-iban-btn');
+  const ibanText = document.getElementById('iban-text');
+  if (copyBtn && ibanText) {
+    copyBtn.addEventListener('click', () => {
+      const iban = ibanText.textContent.replace(/\s/g, '');
+      navigator.clipboard.writeText(iban).then(() => {
+        const originalHTML = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> ' + (IS_EN ? 'Copied!' : 'Copiato!');
+        copyBtn.style.borderColor = 'var(--color-success)';
+        copyBtn.style.color = 'var(--color-success)';
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHTML;
+          copyBtn.style.borderColor = '';
+          copyBtn.style.color = '';
+        }, 2000);
+      }).catch(() => {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = iban;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        const originalHTML = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i> ' + (IS_EN ? 'Copied!' : 'Copiato!');
+        setTimeout(() => { copyBtn.innerHTML = originalHTML; }, 2000);
+      });
+    });
+  }
 });

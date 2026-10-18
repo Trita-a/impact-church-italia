@@ -100,165 +100,223 @@
 
         <div class="hero-content fade-in-up">
             <span class="hero-tagline">Sostienici</span>
-            <h1 class="hero-title">Donazioni</h1>
+            <h1 class="hero-title">La Tua Generosità<br>Fa la Differenza</h1>
+            <p class="hero-subtitle">"Ciascuno dia come ha deliberato in cuor suo; non di malavoglia, né per forza, perché Dio ama un donatore gioioso."
+                <span style="display: block; margin-top: 6px; font-size: 0.85em; opacity: 0.8; font-style: normal;">— 2 Corinzi 9:7</span>
+            </p>
         </div>
     </section>
 
     <!-- ========================================
-       INTRO SECTION
+       WHY GIVE - IMPACT STATEMENT
        ======================================== -->
     <section class="section" style="background-color: var(--color-white);">
         <div class="container">
-            <div class="fade-in-up" style="text-align: center; max-width: 700px; margin: 0 auto;">
-                <h2 class="section-title">Perché Donare</h2>
-                <div class="divider"></div>
-                <p style="font-size: var(--text-lg); color: var(--color-text-muted);">
-                    La tua generosità permette a Impact Church di continuare la sua missione: condividere il Vangelo,
-                    sostenere la comunità e fare la differenza nella vita delle persone. Ogni dono, grande o piccolo,
-                    ha un impatto eterno.
-                </p>
-            </div>
-
-            <div class="verse-highlight fade-in-up">
-                <p>"Ciascuno dia come ha deliberato in cuor suo; non di malavoglia, né per forza, perché Dio ama un
-                    donatore gioioso."</p>
-                <cite>— 2 Corinzi 9:7</cite>
-            </div>
-
-            <!-- Donation Options -->
-            <div class="donation-options">
-                <!-- Bank Transfer -->
-                <!-- Bank Transfer -->
-                <div class="donation-card fade-in-up">
-                    <div class="donation-card-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <h4>Bonifico Bancario</h4>
-                    <p>Il modo più diretto per sostenere la missione. Puoi effettuare un bonifico una tantum o
-                        impostare un versamento regolare.</p>
-                    <div class="donation-details">
-                        <div class="detail-item">
-                            <span class="detail-label">Intestatario</span>
-                            <span class="detail-value">Impact Church Italia</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">IBAN</span>
-                            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                                <span class="detail-value text-mono" id="iban-text">IT00 X000 0000 0000 0000 0000 000</span>
-                                <button type="button" id="copy-iban-btn" style="padding: 4px 10px; font-size: 0.8rem; border-radius: 4px; border: 1px solid var(--color-border); background: var(--color-white); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; font-weight: 500;">
-                                    <i class="far fa-copy"></i> Copia IBAN
-                                </button>
-                            </div>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Banca</span>
-                            <span class="detail-value">Nome Banca</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Causale</span>
-                            <span class="detail-value">Donazione liberale</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PayPal -->
-                <div class="donation-card fade-in-up">
-                    <div class="donation-card-icon">
-                        <i class="fab fa-paypal"></i>
-                    </div>
-                    <h4>PayPal</h4>
-                    <p>Un modo semplice e sicuro per donare online. Puoi usare PayPal anche se non hai un account.</p>
-                    <a href="#" class="btn btn-primary btn-lg" style="width: 100%; margin-top: var(--space-6);">
-                        <i class="fab fa-paypal"></i>
-                        Dona con PayPal
-                    </a>
-                    <p
-                        style="font-size: var(--text-sm); margin-top: var(--space-4); color: var(--color-text-subtle); margin-bottom: 0;">
-                        Transazione sicura e immediata.
+            <div class="giving-intro fade-in-up">
+                <div class="giving-intro-text">
+                    <h2 class="section-title" style="text-align: left;">Perché Donare</h2>
+                    <div class="divider divider-left"></div>
+                    <p style="font-size: var(--text-lg); color: var(--color-text-muted); line-height: 1.8;">
+                        La tua generosità permette a Impact Church di continuare la sua missione: condividere il Vangelo,
+                        sostenere la comunità e fare la differenza nella vita delle persone. <strong style="color: var(--color-primary);">Ogni dono, grande o piccolo,
+                        ha un impatto eterno.</strong>
+                    </p>
+                    <p style="font-size: var(--text-base); color: var(--color-text-muted); margin-bottom: 0;">
+                        La trasparenza è un valore fondamentale per noi. Ogni contributo viene gestito con cura 
+                        e destinato interamente alla missione e alle attività della chiesa.
                     </p>
                 </div>
-
-                <!-- In-Person -->
-                <div class="donation-card fade-in-up">
-                    <div class="donation-card-icon">
-                        <i class="fas fa-church"></i>
-                    </div>
-                    <h4>Durante il Culto</h4>
-                    <p>Puoi portare la tua offerta direttamente durante i nostri culti domenicali nel momento dedicato.
-                    </p>
-                    <div class="donation-details" style="text-align: center;">
-                        <div class="detail-item">
-                            <span class="detail-label"><i class="fas fa-clock"></i> Quando</span>
-                            <span class="detail-value">Domenica 11:00 - 12:30</span>
+                <div class="giving-intro-badges">
+                    <div class="giving-badge fade-in-up">
+                        <div class="giving-badge-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="detail-item" style="margin-top: var(--space-4);">
-                            <span class="detail-label"><i class="fas fa-map-marker-alt"></i> Dove</span>
-                            <span class="detail-value">Via Gino Bombagli, snc<br>06062 Città della Pieve (PG)</span>
+                        <div>
+                            <strong>Donazioni Sicure</strong>
+                            <span>Transazioni protette e verificate</span>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="trust-badges fade-in-up">
-                <div class="trust-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Donazioni Sicure</span>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-heart"></i>
-                    <span>100% alla Missione</span>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-receipt"></i>
-                    <span>Ricevuta Fiscale</span>
+                    <div class="giving-badge fade-in-up">
+                        <div class="giving-badge-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div>
+                            <strong>100% alla Missione</strong>
+                            <span>Ogni euro destinato alla causa</span>
+                        </div>
+                    </div>
+                    <div class="giving-badge fade-in-up">
+                        <div class="giving-badge-icon">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <div>
+                            <strong>Ricevuta Fiscale</strong>
+                            <span>Documentazione disponibile su richiesta</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ========================================
-       HOW WE USE SECTION
+       DONATION METHODS
        ======================================== -->
-    <section class="section bg-warm">
+    <section class="section bg-warm" id="metodi-donazione">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Come Donare</h2>
+            <p class="section-subtitle fade-in-up">Scegli il metodo che preferisci per sostenere la nostra missione.</p>
+
+            <!-- Primary Method: Bank Transfer (Featured) -->
+            <div class="giving-featured fade-in-up">
+                <div class="giving-featured-content">
+                    <div class="giving-featured-badge">
+                        <i class="fas fa-star"></i> Metodo Consigliato
+                    </div>
+                    <h3 style="font-size: var(--text-3xl); margin-bottom: var(--space-4); color: var(--color-white);">Bonifico Bancario</h3>
+                    <p style="color: rgba(255,255,255,0.8); font-size: var(--text-lg); margin-bottom: var(--space-6); line-height: 1.7;">
+                        Il modo più diretto per sostenere la missione. Puoi effettuare un bonifico una tantum 
+                        o impostare un versamento regolare direttamente dal tuo conto.
+                    </p>
+                    <div class="giving-bank-details">
+                        <div class="giving-bank-row">
+                            <span class="giving-bank-label">Intestatario</span>
+                            <span class="giving-bank-value">Impact Church Italia</span>
+                        </div>
+                        <div class="giving-bank-row">
+                            <span class="giving-bank-label">IBAN</span>
+                            <div class="giving-iban-wrapper">
+                                <span class="giving-bank-value giving-iban" id="iban-text">IT00 X000 0000 0000 0000 0000 000</span>
+                                <button type="button" id="copy-iban-btn" class="giving-copy-btn" aria-label="Copia IBAN">
+                                    <i class="far fa-copy"></i> Copia
+                                </button>
+                            </div>
+                        </div>
+                        <div class="giving-bank-row">
+                            <span class="giving-bank-label">Banca</span>
+                            <span class="giving-bank-value">Nome Banca</span>
+                        </div>
+                        <div class="giving-bank-row">
+                            <span class="giving-bank-label">Causale</span>
+                            <span class="giving-bank-value">Donazione liberale</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="giving-featured-visual">
+                    <div class="giving-featured-icon-wrapper">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: var(--text-sm); margin-top: var(--space-4); text-align: center;">
+                        Bonifico bancario diretto<br>Sicuro e tracciabile
+                    </p>
+                </div>
+            </div>
+
+            <!-- Secondary Methods: PayPal + In Person -->
+            <div class="giving-methods-grid">
+                <!-- PayPal -->
+                <div class="giving-method-card fade-in-up">
+                    <div class="giving-method-header">
+                        <div class="giving-method-icon paypal-icon">
+                            <i class="fab fa-paypal"></i>
+                        </div>
+                        <h4>PayPal</h4>
+                    </div>
+                    <p>Un modo semplice e sicuro per donare online. Puoi usare PayPal anche se non hai un account.</p>
+                    <a href="#" class="btn btn-primary btn-lg giving-method-btn">
+                        <i class="fab fa-paypal"></i>
+                        Dona con PayPal
+                    </a>
+                    <span class="giving-method-note">
+                        <i class="fas fa-lock"></i> Transazione sicura e immediata
+                    </span>
+                </div>
+
+                <!-- In Person -->
+                <div class="giving-method-card fade-in-up">
+                    <div class="giving-method-header">
+                        <div class="giving-method-icon church-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h4>Durante il Culto</h4>
+                    </div>
+                    <p>Puoi portare la tua offerta direttamente durante i nostri culti domenicali nel momento dedicato.</p>
+                    <div class="giving-method-info">
+                        <div class="giving-method-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Quando</strong>
+                                <span>Domenica 11:00 – 12:30</span>
+                            </div>
+                        </div>
+                        <div class="giving-method-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Dove</strong>
+                                <span>Via Gino Bombagli, snc<br>06062 Città della Pieve (PG)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       HOW WE USE YOUR GIVING
+       ======================================== -->
+    <section class="section" style="background-color: var(--color-white);">
         <div class="container">
             <h2 class="section-title fade-in-up">Come Vengono Usate le Donazioni</h2>
             <p class="section-subtitle fade-in-up">La trasparenza è un valore fondamentale per noi.</p>
 
-            <div class="cards-grid stagger" style="max-width: 900px; margin: 0 auto;">
-                <div class="card icon-card hover-lift">
-                    <div class="icon-card-icon">
-                        <i class="fas fa-book-bible"></i>
+            <div class="giving-allocation fade-in-up">
+                <div class="giving-allocation-item">
+                    <div class="giving-allocation-header">
+                        <div class="giving-allocation-icon">
+                            <i class="fas fa-book-bible"></i>
+                        </div>
+                        <div>
+                            <h4>Ministero e Insegnamento</h4>
+                            <p>Supporto per i pastori, materiali didattici, e formazione biblica per la comunità.</p>
+                        </div>
                     </div>
-                    <h4 class="card-title">Ministero e Insegnamento</h4>
-                    <p class="card-text">Supporto per i pastori, materiali didattici, e formazione biblica per la
-                        comunità.</p>
                 </div>
 
-                <div class="card icon-card hover-lift">
-                    <div class="icon-card-icon">
-                        <i class="fas fa-home"></i>
+                <div class="giving-allocation-item">
+                    <div class="giving-allocation-header">
+                        <div class="giving-allocation-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div>
+                            <h4>Spese della Chiesa</h4>
+                            <p>Affitto locale, utenze, manutenzione e tutto ciò che serve per mantenere uno spazio accogliente.</p>
+                        </div>
                     </div>
-                    <h4 class="card-title">Spese della Chiesa</h4>
-                    <p class="card-text">Affitto locale, utenze, manutenzione e tutto ciò che serve per mantenere uno
-                        spazio accogliente.</p>
                 </div>
 
-                <div class="card icon-card hover-lift">
-                    <div class="icon-card-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
+                <div class="giving-allocation-item">
+                    <div class="giving-allocation-header">
+                        <div class="giving-allocation-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <h4>Lavoro nel Sociale</h4>
+                            <p>Aiuto a famiglie in difficoltà, progetti comunitari e iniziative di beneficenza.</p>
+                        </div>
                     </div>
-                    <h4 class="card-title">Lavoro nel Sociale</h4>
-                    <p class="card-text">Aiuto a famiglie in difficoltà, progetti comunitari e iniziative di
-                        beneficenza.</p>
                 </div>
 
-                <div class="card icon-card hover-lift">
-                    <div class="icon-card-icon">
-                        <i class="fas fa-globe-europe"></i>
+                <div class="giving-allocation-item">
+                    <div class="giving-allocation-header">
+                        <div class="giving-allocation-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <div>
+                            <h4>Missioni</h4>
+                            <p>Supporto a missionari e progetti evangelistici in Italia e nel mondo.</p>
+                        </div>
                     </div>
-                    <h4 class="card-title">Missioni</h4>
-                    <p class="card-text">Supporto a missionari e progetti evangelistici in Italia e nel mondo.</p>
                 </div>
             </div>
         </div>
