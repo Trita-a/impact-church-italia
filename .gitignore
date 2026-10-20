@@ -10,6 +10,10 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
+# Cloudflare & Node
+.cloudflare/
+node_modules/
+
 # Local test servers & logs
 *.log
 tools/*.exe

@@ -492,7 +492,107 @@ document.addEventListener('DOMContentLoaded', function () {
 // YouTube Live Fetching (live.html)
 // ========================================
 const YOUTUBE_CHANNEL_ID = 'UCIH_ja-vJqeMaAbtCplORdQ';
-const RSS2JSON_API = 'https://api.rss2json.com/v1/api.json';
+const CLOUDFLARE_WORKER_API = 'https://youtube-feed.iltrita.workers.dev';
+const FALLBACK_FEED_API = `https://feed2json.org/convert?url=${encodeURIComponent('https://www.youtube.com/feeds/videos.xml?channel_id=' + YOUTUBE_CHANNEL_ID)}`;
+
+// Hardcoded fallback with recent live sermons (October 2026)
+const STATIC_FALLBACK_SERMONS = [
+  {
+    title: 'Credere o non credere, questo è il problema! - Past. Giuseppe Capuano (18/10/2026)',
+    link: 'https://www.youtube.com/watch?v=lhOe3DRYBxY',
+    pubDate: '2026-10-18T22:54:07+00:00',
+    thumbnail: 'https://img.youtube.com/vi/lhOe3DRYBxY/maxresdefault.jpg',
+    description: 'Guarda l\'ultima predicazione di Impact Church Italia.'
+  },
+  {
+    title: 'Fedeltà ed onore - Past. Giuseppe Capuano (11/10/2026)',
+    link: 'https://www.youtube.com/watch?v=-GsxtQmMado',
+    pubDate: '2026-10-11T22:35:03+00:00',
+    thumbnail: 'https://img.youtube.com/vi/-GsxtQmMado/hqdefault.jpg'
+  },
+  {
+    title: 'Unshakable - New Wine Conference // Sessione 4 (04/10/2026)',
+    link: 'https://www.youtube.com/watch?v=dnjBAyMAYOI',
+    pubDate: '2026-10-05T00:02:48+00:00',
+    thumbnail: 'https://img.youtube.com/vi/dnjBAyMAYOI/hqdefault.jpg'
+  },
+  {
+    title: 'Unshakable - New Wine Conference // Sessione 3 (03/10/2026)',
+    link: 'https://www.youtube.com/watch?v=rMuRiZC3o9o',
+    pubDate: '2026-10-04T05:52:29+00:00',
+    thumbnail: 'https://img.youtube.com/vi/rMuRiZC3o9o/hqdefault.jpg'
+  },
+  {
+    title: 'Unshakable - New Wine Conference // Sessione 2 (03/10/2026)',
+    link: 'https://www.youtube.com/watch?v=gA5V5GlTW-A',
+    pubDate: '2026-10-04T04:07:21+00:00',
+    thumbnail: 'https://img.youtube.com/vi/gA5V5GlTW-A/hqdefault.jpg'
+  },
+  {
+    title: 'Unshakable - New Wine Conference // Sessione 1 (03/10/2026)',
+    link: 'https://www.youtube.com/watch?v=lXSAyfmYVDE',
+    pubDate: '2026-10-04T02:52:07+00:00',
+    thumbnail: 'https://img.youtube.com/vi/lXSAyfmYVDE/hqdefault.jpg'
+  },
+  {
+    title: 'Reazioni e destini - Past. Giuseppe Capuano (27/09/2026)',
+    link: 'https://www.youtube.com/watch?v=td6jp4_hTe8',
+    pubDate: '2026-09-27T22:46:13+00:00',
+    thumbnail: 'https://img.youtube.com/vi/td6jp4_hTe8/hqdefault.jpg'
+  }
+];
+
+/**
+ * Robust fetch for YouTube videos with Cloudflare Worker and fallbacks
+ */
+async function fetchYouTubeVideos() {
+  // 1. Primary: Dedicated Cloudflare Worker
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const response = await fetch(CLOUDFLARE_WORKER_API, { signal: controller.signal });
+    clearTimeout(timeoutId);
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data && data.status === 'ok' && Array.isArray(data.items) && data.items.length > 0) {
+        return data.items;
+      }
+    }
+  } catch (err) {
+    console.warn('Cloudflare Worker fetch error, trying fallback...', err);
+  }
+
+  // 2. Secondary fallback: feed2json proxy
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const response = await fetch(FALLBACK_FEED_API, { signal: controller.signal });
+    clearTimeout(timeoutId);
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data && Array.isArray(data.items) && data.items.length > 0) {
+        return data.items.map(item => {
+          const rawId = (item.guid || '').replace('yt:video:', '');
+          return {
+            title: item.title,
+            link: item.url || `https://www.youtube.com/watch?v=${rawId}`,
+            guid: rawId,
+            pubDate: item.date_published || item.date_modified,
+            thumbnail: `https://img.youtube.com/vi/${rawId}/hqdefault.jpg`,
+            description: item.summary || ''
+          };
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('Fallback proxy error, using static fallback...', err);
+  }
+
+  // 3. Guaranteed static fallback
+  return STATIC_FALLBACK_SERMONS;
+}
 
 /**
  * Formats a date string to Localized format
@@ -647,44 +747,46 @@ async function initSermons() {
   const featuredTitle = document.getElementById('featured-title');
   if (!featuredTitle) return;
 
-  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`;
-  const apiUrl = `${RSS2JSON_API}?rss_url=${encodeURIComponent(feedUrl)}`;
-
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+    const videos = await fetchYouTubeVideos();
+    if (!videos || videos.length === 0) return;
 
-    if (data.status !== 'ok' || !data.items || data.items.length === 0) return;
-
-    const videos = data.items;
     const latestVideo = videos[0];
-    const latestVideoId = extractVideoId(latestVideo.link);
+    const latestVideoId = extractVideoId(latestVideo.link) || latestVideo.guid;
     const latestThumbnail = `https://img.youtube.com/vi/${latestVideoId}/maxresdefault.jpg`;
 
     const { cleanTitle, speaker } = parseVideoTitle(latestVideo.title);
 
-    document.getElementById('featured-video-img').src = latestThumbnail;
+    const featImg = document.getElementById('featured-video-img');
+    if (featImg) featImg.src = latestThumbnail;
+    
     document.getElementById('featured-title').textContent = cleanTitle;
     document.getElementById('featured-date').innerHTML = `<i class="fas fa-calendar-alt"></i> ${formatDate(latestVideo.pubDate)}`;
 
-    const desc = latestVideo.description || latestVideo.content || '';
+    const desc = latestVideo.description || '';
     const shortDesc = desc.length > 150 ? desc.substring(0, 150) + '...' : desc;
     document.getElementById('featured-desc').textContent = shortDesc || (IS_EN ? 'Watch the latest live from our church.' : 'Guarda l\'ultima live della nostra chiesa.');
 
     if (speaker) {
       const avatarEl = document.getElementById('featured-speaker-avatar');
-      if (speaker.avatar) {
-        avatarEl.src = speaker.avatar;
-        avatarEl.style.display = '';
-      } else {
-        avatarEl.style.display = 'none';
+      if (avatarEl) {
+        if (speaker.avatar) {
+          avatarEl.src = speaker.avatar;
+          avatarEl.style.display = '';
+        } else {
+          avatarEl.style.display = 'none';
+        }
       }
-      document.getElementById('featured-speaker-name').textContent = speaker.name;
+      const speakerNameEl = document.getElementById('featured-speaker-name');
+      if (speakerNameEl) speakerNameEl.textContent = speaker.name;
     }
 
     const youtubeUrl = `https://www.youtube.com/watch?v=${latestVideoId}`;
-    document.getElementById('featured-play-btn').href = youtubeUrl;
-    document.getElementById('featured-watch-btn').href = youtubeUrl;
+    const playBtn = document.getElementById('featured-play-btn');
+    if (playBtn) playBtn.href = youtubeUrl;
+    
+    const watchBtn = document.getElementById('featured-watch-btn');
+    if (watchBtn) watchBtn.href = youtubeUrl;
 
     const gridContainer = document.getElementById('sermon-grid-container');
     if (gridContainer && videos.length > 1) {
@@ -693,7 +795,7 @@ async function initSermons() {
     }
 
   } catch (error) {
-    console.error('Error fetching YouTube feed:', error);
+    console.error('Error updating live sermon section:', error);
   }
 }
 
@@ -704,30 +806,32 @@ async function initHomeLive() {
   const homeCard = document.getElementById('home-live-card');
   if (!homeCard) return;
 
-  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`;
-  const apiUrl = `${RSS2JSON_API}?rss_url=${encodeURIComponent(feedUrl)}`;
-
   try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+    const videos = await fetchYouTubeVideos();
+    if (!videos || videos.length === 0) return;
 
-    if (data.status !== 'ok' || !data.items || data.items.length === 0) return;
-
-    const latestVideo = data.items[0];
-    const latestVideoId = extractVideoId(latestVideo.link);
+    const latestVideo = videos[0];
+    const latestVideoId = extractVideoId(latestVideo.link) || latestVideo.guid;
     const latestThumbnail = `https://img.youtube.com/vi/${latestVideoId}/maxresdefault.jpg`;
 
     const { cleanTitle } = parseVideoTitle(latestVideo.title);
 
-    document.getElementById('home-live-title').textContent = cleanTitle;
-    document.getElementById('home-live-date').textContent = formatDate(latestVideo.pubDate);
-    document.getElementById('home-live-img').src = latestThumbnail;
-    document.getElementById('home-live-link').href = `https://www.youtube.com/watch?v=${latestVideoId}`;
+    const titleEl = document.getElementById('home-live-title');
+    if (titleEl) titleEl.textContent = cleanTitle;
+
+    const dateEl = document.getElementById('home-live-date');
+    if (dateEl) dateEl.textContent = formatDate(latestVideo.pubDate);
+
+    const imgEl = document.getElementById('home-live-img');
+    if (imgEl) imgEl.src = latestThumbnail;
+
+    const linkEl = document.getElementById('home-live-link');
+    if (linkEl) linkEl.href = `https://www.youtube.com/watch?v=${latestVideoId}`;
 
     homeCard.style.display = 'grid';
 
   } catch (error) {
-    console.error('Error fetching Home live:', error);
+    console.error('Error updating Home live:', error);
   }
 }
 
