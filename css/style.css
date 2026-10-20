@@ -1763,24 +1763,15 @@ p {
 }
 
 /* ========================================
-   HARMONIZATION (Overlap Technique)
+   LATEST LIVE & LEADERSHIP SECTIONS
    ======================================== */
 #latest-live {
-  padding-bottom: var(--space-10);
-  /* Reduced from standard */
-  margin-bottom: -100px;
-  /* Pull next section up */
   position: relative;
   z-index: 20;
 }
 
 #latest-live .section-subtitle {
-  margin-bottom: var(--space-10);
-}
-
-.leadership-preview {
-  padding-top: calc(var(--space-20) + 100px);
-  /* Compensate overlap */
+  margin-bottom: var(--space-8);
 }
 
 /* Icon Card */
@@ -2220,9 +2211,7 @@ textarea.contact-form-field {
     height: 150px;
   }
 
-  #latest-live {
-    margin-bottom: 0;
-  }
+
 
   .schedule-grid {
     grid-template-columns: 1fr;
