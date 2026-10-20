@@ -697,9 +697,10 @@ function parseVideoTitle(rawTitle) {
  * Creates a sermon card HTML for the grid
  */
 function createSermonCard(video) {
-  const videoId = extractVideoId(video.link);
+  const videoId = extractVideoId(video.link) || video.guid || '';
   const thumbnail = video.thumbnail || `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   const formattedDate = formatDate(video.pubDate);
+  const youtubeUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
   // Parse the title
   const { cleanTitle, speaker } = parseVideoTitle(video.title);
@@ -720,7 +721,7 @@ function createSermonCard(video) {
     <div class="sermon-card">
       <div class="sermon-thumbnail">
         <img src="${thumbnail}" alt="${cleanTitle}">
-        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="sermon-play-btn">
+        <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="sermon-play-btn" aria-label="Guarda ${cleanTitle}">
           <i class="fas fa-play" style="margin-left: 4px;"></i>
         </a>
       </div>
@@ -731,7 +732,7 @@ function createSermonCard(video) {
         <h4 class="sermon-title">${cleanTitle}</h4>
         ${speakerHtml}
         <div class="sermon-actions">
-          <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="btn-watch">
+          <a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="btn-watch">
             <i class="fas fa-video"></i> ${T.watch}
           </a>
         </div>
