@@ -47,6 +47,7 @@
     "url": "https://impactchurchitalia.com/en/",
     "logo": "https://impactchurchitalia.com/images/logo-icon.png",
     "image": "https://impactchurchitalia.com/images/hero-bg.webp",
+    "telephone": "+393337662030",
     "description": "An evangelical church in Città della Pieve where people can be impacted and transformed by the Gospel.",
     "address": {
       "@type": "PostalAddress",
@@ -473,6 +474,16 @@
           <div class="contact-list">
             <div class="contact-item">
               <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div>
+                <p class="contact-label">Phone</p>
+                <a href="tel:+393337662030" class="contact-link">+39 333 766 2030</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
                 <i class="fas fa-envelope"></i>
               </div>
               <div>
@@ -508,9 +519,10 @@
         <div class="fade-in-up">
           <h4 style="margin-bottom: var(--space-6);">Send us a Message</h4>
 
-          <form id="main-content" name="contact-en" class="contact-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display: flex; flex-direction: column; gap: var(--space-4);">
-            <input type="hidden" name="form-name" value="contact-en">
-            <p class="visually-hidden"><label>Do not fill this if you are human: <input name="bot-field"></label></p>
+          <form id="main-content" name="contact-en" class="contact-form" action="https://formsubmit.co/giuseppejulia@libero.it" method="POST" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <input type="hidden" name="_subject" value="New message from Impact Church website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <div class="form-row">
               <div>
                 <label for="contact-name-en" class="visually-hidden">Your Name</label>
@@ -549,6 +561,11 @@
             <!-- Info Column -->
             <div class="footer-info">
                 <div class="footer-contact">
+                    <a href="tel:+393337662030" class="footer-contact-link">
+                        <i class="fas fa-phone-alt"></i>
+                        +39 333 766 2030
+                    </a>
+                    <span class="footer-separator">|</span>
                     <a href="mailto:giuseppejulia@libero.it" class="footer-contact-link">
                         <i class="fas fa-envelope"></i>
                         giuseppejulia@libero.it

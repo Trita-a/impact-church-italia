@@ -413,11 +413,22 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(contactForm);
 
       try {
-        await fetch('https://formsubmit.co/ajax/giuseppejulia@libero.it', {
+        const response = await fetch('https://formsubmit.co/ajax/giuseppejulia@libero.it', {
           method: 'POST',
-          body: formData
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
         });
-        submitBtn.textContent = T.msgSent;
+        const result = await response.json().catch(() => ({}));
+
+        if (response.ok && result.success !== 'false') {
+          submitBtn.textContent = T.msgSent;
+          submitBtn.style.color = '#10b981';
+          contactForm.reset();
+        } else {
+          throw new Error(result.message || 'Form submission failed');
+        }
       } catch (err) {
         console.error('Form submission error:', err);
         submitBtn.textContent = T.msgError;
@@ -426,9 +437,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       setTimeout(() => {
         submitBtn.innerHTML = originalHtml;
+        submitBtn.style.color = '';
         submitBtn.disabled = false;
-        contactForm.reset();
-      }, 3000);
+      }, 4000);
     });
   }
 
