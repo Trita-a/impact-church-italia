@@ -63,6 +63,7 @@
   --color-border: #e7e5e4;
   --color-border-light: #f5f5f4;
   --color-white: #ffffff;
+  --color-bg-light: #fafaf9;
 
   /* Colori Semantici */
   --color-success: #10b981;
@@ -82,6 +83,7 @@
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
+  --text-md: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
@@ -112,6 +114,7 @@
   --space-4: 1rem;
   --space-5: 1.25rem;
   --space-6: 1.5rem;
+  --space-7: 1.75rem;
   --space-8: 2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
@@ -2269,10 +2272,17 @@ textarea.contact-form-field {
     display: none;
   }
 
-  /* Minimal Mobile Footer - Hide contact info */
-  .footer-info,
+  /* Responsive Mobile Footer - Beautiful Stacked Contacts */
+  .footer-info {
+    display: flex;
+    justify-content: center;
+  }
   .footer-contact {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: center;
+    width: 100%;
   }
 
   .footer-main {

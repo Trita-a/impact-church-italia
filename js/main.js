@@ -819,11 +819,15 @@ async function initSermons() {
  */
 async function initHomeLive() {
   const homeCard = document.getElementById('home-live-card');
+  const liveSection = document.getElementById('latest-live');
   if (!homeCard) return;
 
   try {
     const videos = await fetchYouTubeVideos();
-    if (!videos || videos.length === 0) return;
+    if (!videos || videos.length === 0) {
+      if (liveSection) liveSection.style.display = 'none';
+      return;
+    }
 
     const latestVideo = videos[0];
     const latestVideoId = extractVideoId(latestVideo.link) || latestVideo.guid;
@@ -847,6 +851,7 @@ async function initHomeLive() {
 
   } catch (error) {
     console.error('Error updating Home live:', error);
+    if (liveSection) liveSection.style.display = 'none';
   }
 }
 
@@ -855,7 +860,21 @@ async function initHomeLive() {
  */
 function initMap() {
   const mapElement = document.getElementById('contact-map');
-  if (!mapElement || typeof L === 'undefined') return;
+  if (!mapElement) return;
+
+  if (typeof L === 'undefined') {
+    let attempts = 0;
+    const checkLeaflet = setInterval(() => {
+      attempts++;
+      if (typeof L !== 'undefined') {
+        clearInterval(checkLeaflet);
+        initMap();
+      } else if (attempts > 50) {
+        clearInterval(checkLeaflet);
+      }
+    }, 100);
+    return;
+  }
 
   // Exact coordinates for Impact Church Italia
   const lat = 42.9623;
