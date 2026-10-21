@@ -1020,20 +1020,20 @@ p {
 @media (max-width: 768px) {
   /* Dedicated Art-Directed Smartphone Hero Images (Vertical 9:16) */
   .hero-slide:nth-child(1) {
-    background-image: url('../images/hero-1-mobile.webp') !important;
+    background-image: url('../images/hero-1-mobile.webp?v=2') !important;
   }
   .hero-slide:nth-child(2) {
     background-image: url('../images/hero-2-mobile.webp') !important;
   }
   .hero-slide:nth-child(3) {
-    background-image: url('../images/hero-3-mobile.webp') !important;
+    background-image: url('../images/hero-3-mobile.webp?v=2') !important;
   }
   .hero-slide:nth-child(4) {
     background-image: url('../images/hero-4-mobile.webp') !important;
   }
 
   .hero:not(.hero-inner) .hero-bg {
-    background-image: url('../images/hero-1-mobile.webp') !important;
+    background-image: url('../images/hero-1-mobile.webp?v=2') !important;
   }
 
   .hero-slide {
