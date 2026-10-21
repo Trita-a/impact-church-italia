@@ -62,12 +62,20 @@
       "latitude": 42.95,
       "longitude": 12.00
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "11:00",
-      "closes": "12:30"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Thursday",
+        "opens": "19:30",
+        "closes": "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "12:30"
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/impactchurchit",
       "https://www.instagram.com/impactchurchit",
@@ -169,7 +177,7 @@
 
       <div class="hero-cta fade-in-up delay-5">
         <a href="#orari" class="btn btn-hero-main">
-          <span>Unisciti a noi Domenica</span>
+          <span>I Nostri Incontri</span>
           <i class="fas fa-arrow-right"></i>
         </a>
         <a href="chi-siamo.html" class="hero-link">
@@ -366,8 +374,18 @@
           <h2 class="section-title" style="text-align: left;">Quando Incontrarci</h2>
           <div class="divider divider-left"></div>
 
-          <p class="schedule-day">Ogni Domenica</p>
-          <p class="schedule-time">11:00 - 12:30</p>
+          <div class="schedule-events-list" style="margin-bottom: var(--space-6);">
+            <div class="schedule-item" style="margin-bottom: var(--space-5);">
+              <p class="schedule-day" style="margin-bottom: var(--space-1);"><i class="fas fa-calendar-day" style="margin-right: 8px;"></i>Ogni Giovedì</p>
+              <p class="schedule-time" style="font-size: var(--text-3xl); margin-bottom: 2px;">19:30 – 20:30</p>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: 0;">Incontro di Preghiera e Studio Biblico</p>
+            </div>
+            <div class="schedule-item" style="border-top: 1px solid var(--color-border); padding-top: var(--space-4);">
+              <p class="schedule-day" style="margin-bottom: var(--space-1);"><i class="fas fa-church" style="margin-right: 8px;"></i>Ogni Domenica</p>
+              <p class="schedule-time" style="font-size: var(--text-3xl); margin-bottom: 2px;">11:00 – 12:30</p>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: 0;">Culto Domenicale di Celebrazione</p>
+            </div>
+          </div>
 
           <p class="schedule-address">
             <i class="fas fa-map-marker-alt"></i>
@@ -410,34 +428,34 @@
       <div class="cards-grid events-grid stagger">
         <div class="card icon-card hover-lift">
           <div class="icon-card-icon">
+            <i class="fas fa-book-bible"></i>
+          </div>
+          <h4 class="card-title">Incontro del Giovedì</h4>
+          <p class="card-text">Ogni giovedì dalle 19:30 alle 20:30. Incontro di preghiera, studio della Parola e comunione fraterna.</p>
+          <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
+            <i class="fas fa-calendar-alt"></i> Ogni Giovedì · 19:30 - 20:30
+          </p>
+        </div>
+
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
             <i class="fas fa-church"></i>
           </div>
           <h4 class="card-title">Culto Domenicale</h4>
-          <p class="card-text">Ogni domenica dalle 11:00 alle 12:30. Lode, adorazione e predicazione della Parola.</p>
+          <p class="card-text">Ogni domenica dalle 11:00 alle 12:30. Lode, adorazione, predicazione del Vangelo e momento per le famiglie.</p>
           <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
-            <i class="fas fa-calendar-alt"></i> Ogni Domenica
+            <i class="fas fa-calendar-alt"></i> Ogni Domenica · 11:00 - 12:30
           </p>
         </div>
 
         <div class="card icon-card hover-lift">
           <div class="icon-card-icon">
-            <i class="fas fa-book-bible"></i>
+            <i class="fas fa-calendar-check"></i>
           </div>
-          <h4 class="card-title">Studio Biblico</h4>
-          <p class="card-text">Approfondisci la tua conoscenza della Bibbia con noi in un ambiente accogliente.</p>
+          <h4 class="card-title">Eventi Comunitari</h4>
+          <p class="card-text">Battesimi, incontri speciali e momenti di testimonianza organizzati regolarmente durante l'anno.</p>
           <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
-            <i class="fas fa-calendar-alt"></i> Mercoledì Sera
-          </p>
-        </div>
-
-        <div class="card icon-card hover-lift">
-          <div class="icon-card-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h4 class="card-title">Incontro di Preghiera</h4>
-          <p class="card-text">Unisciti a noi per un momento di preghiera e intercessione per la comunità.</p>
-          <p style="color: var(--color-accent-text); font-weight: var(--font-semibold); margin-bottom: 0;">
-            <i class="fas fa-calendar-alt"></i> Venerdì Sera
+            <i class="fas fa-bullhorn"></i> Annunciati in comunità
           </p>
         </div>
       </div>
@@ -452,7 +470,7 @@
       <h2>Vieni a Trovarci</h2>
       <div class="divider"></div>
       <p>Che tu stia cercando risposte, una comunità accogliente, o semplicemente un luogo di pace, sei il benvenuto. Ti
-        aspettiamo domenica!</p>
+        aspettiamo ai nostri incontri!</p>
       <a href="#contatti" class="btn btn-primary btn-lg">
         <i class="fas fa-church"></i>
         Pianifica la tua Visita
@@ -509,8 +527,8 @@
                 <i class="fas fa-clock"></i>
               </div>
               <div>
-                <p class="contact-label">Culto Domenicale</p>
-                <p class="contact-text">Domenica 11:00 - 12:30</p>
+                <p class="contact-label">Orari degli Incontri</p>
+                <p class="contact-text">Gio. 19:30 - 20:30 · Dom. 11:00 - 12:30</p>
               </div>
             </div>
 
@@ -580,7 +598,7 @@
                     <span class="footer-separator">|</span>
                     <span class="footer-contact-link">
                         <i class="fas fa-clock"></i>
-                        Dom. 11:00 - 12:30
+                        Gio. 19:30 - 20:30 | Dom. 11:00 - 12:30
                     </span>
                 </div>
             </div>

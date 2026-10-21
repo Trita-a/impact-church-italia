@@ -444,28 +444,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ========================================
-  // Copy IBAN Helper
-  // ========================================
-  const copyBtn = document.getElementById('copy-iban-btn');
-  const ibanText = document.getElementById('iban-text');
-  if (copyBtn && ibanText) {
-    copyBtn.addEventListener('click', function () {
-      const textToCopy = ibanText.textContent.trim();
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        const originalHtml = copyBtn.innerHTML;
-        copyBtn.innerHTML = `<i class="fas fa-check"></i> ${IS_EN ? 'Copied!' : 'Copiato!'}`;
-        copyBtn.style.color = '#10b981';
-        setTimeout(() => {
-          copyBtn.innerHTML = originalHtml;
-          copyBtn.style.color = '';
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy IBAN:', err);
-      });
-    });
-  }
-
-  // ========================================
   // Cookie Banner Logic
   // ========================================
   function initCookieBanner() {

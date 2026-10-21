@@ -62,12 +62,20 @@
       "latitude": 42.95,
       "longitude": 12.00
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Sunday",
-      "opens": "11:00",
-      "closes": "12:30"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Thursday",
+        "opens": "19:30",
+        "closes": "20:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "12:30"
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/impactchurchit",
       "https://www.instagram.com/impactchurchit",
@@ -169,7 +177,7 @@
 
       <div class="hero-cta fade-in-up delay-5">
         <a href="#orari" class="btn btn-hero-main">
-          <span>Join us on Sunday</span>
+          <span>Our Gatherings</span>
           <i class="fas fa-arrow-right"></i>
         </a>
         <a href="about-us.html" class="hero-link">
@@ -364,8 +372,18 @@
           <h2 class="section-title" style="text-align: left;">When to Meet Us</h2>
           <div class="divider divider-left"></div>
 
-          <p class="schedule-day">Every Sunday</p>
-          <p class="schedule-time">11:00 - 12:30</p>
+          <div class="schedule-events-list" style="margin-bottom: var(--space-6);">
+            <div class="schedule-item" style="margin-bottom: var(--space-5);">
+              <p class="schedule-day" style="margin-bottom: var(--space-1);"><i class="fas fa-calendar-day" style="margin-right: 8px;"></i>Every Thursday</p>
+              <p class="schedule-time" style="font-size: var(--text-3xl); margin-bottom: 2px;">19:30 – 20:30</p>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: 0;">Prayer & Bible Study Meeting</p>
+            </div>
+            <div class="schedule-item" style="border-top: 1px solid var(--color-border); padding-top: var(--space-4);">
+              <p class="schedule-day" style="margin-bottom: var(--space-1);"><i class="fas fa-church" style="margin-right: 8px;"></i>Every Sunday</p>
+              <p class="schedule-time" style="font-size: var(--text-3xl); margin-bottom: 2px;">11:00 – 12:30</p>
+              <p style="color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: 0;">Sunday Celebration Service</p>
+            </div>
+          </div>
 
           <p class="schedule-address">
             <i class="fas fa-map-marker-alt"></i>
@@ -408,34 +426,34 @@
       <div class="cards-grid events-grid stagger">
         <div class="card icon-card hover-lift">
           <div class="icon-card-icon">
+            <i class="fas fa-book-bible"></i>
+          </div>
+          <h4 class="card-title">Thursday Gathering</h4>
+          <p class="card-text">Every Thursday from 19:30 to 20:30. Prayer, Bible study, and fellowship.</p>
+          <p style="color: var(--color-accent); font-weight: var(--font-semibold); margin-bottom: 0;">
+            <i class="fas fa-calendar-alt"></i> Every Thursday · 19:30 - 20:30
+          </p>
+        </div>
+
+        <div class="card icon-card hover-lift">
+          <div class="icon-card-icon">
             <i class="fas fa-church"></i>
           </div>
           <h4 class="card-title">Sunday Service</h4>
-          <p class="card-text">Every Sunday from 11:00 to 12:30. Praise, worship and preaching of the Word.</p>
+          <p class="card-text">Every Sunday from 11:00 to 12:30. Praise, worship, preaching of the Gospel, and family ministry.</p>
           <p style="color: var(--color-accent); font-weight: var(--font-semibold); margin-bottom: 0;">
-            <i class="fas fa-calendar-alt"></i> Every Sunday
+            <i class="fas fa-calendar-alt"></i> Every Sunday · 11:00 - 12:30
           </p>
         </div>
 
         <div class="card icon-card hover-lift">
           <div class="icon-card-icon">
-            <i class="fas fa-book-bible"></i>
+            <i class="fas fa-calendar-check"></i>
           </div>
-          <h4 class="card-title">Bible Study</h4>
-          <p class="card-text">Deepen your knowledge of the Bible with us in a welcoming environment.</p>
+          <h4 class="card-title">Community Events</h4>
+          <p class="card-text">Baptisms, special conferences, and fellowship moments scheduled throughout the year.</p>
           <p style="color: var(--color-accent); font-weight: var(--font-semibold); margin-bottom: 0;">
-            <i class="fas fa-calendar-alt"></i> Wednesday Evening
-          </p>
-        </div>
-
-        <div class="card icon-card hover-lift">
-          <div class="icon-card-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h4 class="card-title">Prayer Meeting</h4>
-          <p class="card-text">Join us for a time of prayer and intercession for the community.</p>
-          <p style="color: var(--color-accent); font-weight: var(--font-semibold); margin-bottom: 0;">
-            <i class="fas fa-calendar-alt"></i> Friday Evening
+            <i class="fas fa-bullhorn"></i> Announced in community
           </p>
         </div>
       </div>
@@ -450,7 +468,7 @@
       <h2>Come Visit Us</h2>
       <div class="divider"></div>
       <p>Whether you're looking for answers, a welcoming community, or simply a place of peace, you are welcome. We look
-        forward to seeing you on Sunday!</p>
+        forward to seeing you at our gatherings!</p>
       <a href="#contatti" class="btn btn-primary btn-lg">
         <i class="fas fa-church"></i>
         Plan Your Visit
@@ -462,6 +480,7 @@
        CONTACT SECTION
        ======================================== -->
   <section id="contatti" class="section bg-cool-soft">
+    <a id="contact" style="display:block; position:relative; top:-80px; visibility:hidden;"></a>
     <div class="container">
       <h2 class="section-title fade-in-up">Contact Us</h2>
       <p class="section-subtitle fade-in-up">Have questions? We are here for you.</p>
@@ -507,8 +526,8 @@
                 <i class="fas fa-clock"></i>
               </div>
               <div>
-                <p class="contact-label">Sunday Service</p>
-                <p class="contact-text">Sunday 11:00 - 12:30</p>
+                <p class="contact-label">Meeting Times</p>
+                <p class="contact-text">Thu. 19:30 - 20:30 · Sun. 11:00 - 12:30</p>
               </div>
             </div>
 
@@ -578,7 +597,7 @@
                     <span class="footer-separator">|</span>
                     <span class="footer-contact-link">
                         <i class="fas fa-clock"></i>
-                        Sun. 11:00 - 12:30
+                        Thu. 19:30 - 20:30 | Sun. 11:00 - 12:30
                     </span>
                 </div>
             </div>
