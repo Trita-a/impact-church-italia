@@ -89,7 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
       const isActive = menuToggle.classList.toggle('active');
       mobileNav.classList.toggle('active');
       menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-      document.body.style.overflow = isActive ? 'hidden' : '';
+      if (isActive) {
+        mobileNav.scrollTop = 0;
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
     }
 
     menuToggle.addEventListener('click', toggleMenu);
