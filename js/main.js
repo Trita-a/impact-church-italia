@@ -357,6 +357,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ========================================
+  // Dynamic Years of Ministry (Since 2011)
+  // ========================================
+  const ministryYearsEls = document.querySelectorAll('.years-of-ministry');
+  if (ministryYearsEls.length > 0) {
+    const foundedYear = 2011;
+    const currentYear = new Date().getFullYear();
+    const ministryYears = Math.max(1, currentYear - foundedYear);
+    ministryYearsEls.forEach(el => {
+      el.textContent = ministryYears + '+';
+    });
+  }
+
+  // ========================================
   // Lazy Loading Images
   // ========================================
   const lazyImages = document.querySelectorAll('img[data-src]');
