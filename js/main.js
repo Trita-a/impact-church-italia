@@ -47,6 +47,18 @@ window.addEventListener('load', function () {
 document.addEventListener('DOMContentLoaded', function () {
 
   // ========================================
+  // Language Switch Preference Handler
+  // ========================================
+  document.querySelectorAll('.lang-switch, .lang-switch-mobile').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      try {
+        var targetLang = IS_EN ? 'it' : 'en';
+        localStorage.setItem('user_lang_choice', targetLang);
+      } catch (e) {}
+    });
+  });
+
+  // ========================================
   // Header Scroll Effect
   // ========================================
   const header = document.querySelector('.header');

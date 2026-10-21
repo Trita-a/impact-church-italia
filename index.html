@@ -2,6 +2,25 @@
 <html lang="it">
 
 <head>
+  <!-- Browser Language Auto-Detection -->
+  <script>
+    (function () {
+      try {
+        var userChoice = localStorage.getItem('user_lang_choice');
+        if (userChoice === 'it') return;
+        if (userChoice === 'en') {
+          window.location.replace('/en/');
+          return;
+        }
+        var navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        var ua = (navigator.userAgent || '').toLowerCase();
+        var isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(ua);
+        if (!isBot && navLang.indexOf('en') === 0) {
+          window.location.replace('/en/');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <meta name="description"
     content="Impact Church è una comunità cristiana evangelica a Città della Pieve (Perugia). Partecipa ai nostri culti, scopri la nostra missione di fede, speranza e amore.">
