@@ -112,6 +112,16 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = '';
       });
     });
+
+    // Close mobile nav on Escape key press
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   // ========================================

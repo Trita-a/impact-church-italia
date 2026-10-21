@@ -192,6 +192,7 @@ body {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -202,6 +203,9 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 img {
@@ -780,6 +784,8 @@ p {
   justify-content: center;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.05);
+  border: none;
+  outline: none;
   transition: background var(--transition-base);
 }
 
@@ -826,6 +832,8 @@ p {
   align-items: baseline;
   gap: var(--space-4);
   text-decoration: none;
+  min-height: 48px;
+  padding: var(--space-1) 0;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -876,10 +884,10 @@ p {
 
 .link-text {
   font-family: var(--font-heading);
-  font-size: 3rem;
-  /* Massive Premium Type */
+  font-size: clamp(1.85rem, 6.5vw, 2.6rem);
+  /* Balanced Editorial Type */
   color: var(--color-white);
-  line-height: 1.1;
+  line-height: 1.15;
   font-weight: 300;
   transition: color var(--transition-base);
 }
@@ -1293,7 +1301,7 @@ p {
   }
 
   .hero-title {
-    font-size: clamp(1.5rem, 5.8vw, 2.1rem);
+    font-size: clamp(1.35rem, 5.5vw, 2.05rem);
     line-height: 1.2;
     margin-bottom: var(--space-3);
     white-space: nowrap; /* Keeps "Fede · Speranza · Amore" completely symmetrical on 1 line */
@@ -1586,7 +1594,8 @@ p {
   margin-right: var(--space-3);
 }
 
-.schedule-buttons {
+.schedule-buttons,
+.schedule-actions {
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
@@ -2181,7 +2190,7 @@ textarea.contact-form-field {
   }
 
   .hero-title {
-    font-size: var(--text-4xl);
+    font-size: clamp(1.8rem, 4.5vw, 2.4rem);
   }
 
   .hero-subtitle {
@@ -2328,14 +2337,19 @@ textarea.contact-form-field {
   }
 
   /* Schedule Mobile */
-  .schedule-buttons {
+  .schedule-buttons,
+  .schedule-actions {
+    display: flex;
     flex-direction: column;
     width: 100%;
+    gap: var(--space-3);
   }
 
-  .schedule-buttons .btn {
+  .schedule-buttons .btn,
+  .schedule-actions .btn {
     width: 100%;
     justify-content: center;
+    margin: 0;
   }
 
   .schedule-info {
@@ -2372,14 +2386,17 @@ textarea.contact-form-field {
     width: 100%;
   }
 
-  /* Hero Mobile Typography Optimization - Elegant Wrapping */
+  /* Hero Mobile Typography Optimization - Symmetrical Single Line */
   .hero-title {
-    white-space: normal;
-    font-size: clamp(2.1rem, 8.5vw, 2.8rem);
+    font-size: clamp(1.22rem, 5.2vw, 1.7rem);
+    white-space: nowrap;
     text-align: center;
-    text-wrap: balance;
-    line-height: 1.18;
-    margin-bottom: var(--space-4);
+    line-height: 1.2;
+    margin-bottom: var(--space-3);
+  }
+
+  .mobile-nav {
+    padding: var(--space-6) var(--space-5);
   }
 
   .hero-tagline {
@@ -3047,11 +3064,15 @@ section.in-view .divider {
 
 /* Small Screens Responsive Optimization (< 380px) */
 @media (max-width: 380px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
   .section-title {
     font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 330px) {
+  .hero-title {
+    white-space: normal;
+    font-size: 1.35rem;
   }
 }
 
@@ -3531,6 +3552,19 @@ section.in-view .divider {
 }
 
 @media (max-width: 480px) {
+  .giving-featured {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .giving-bank-row {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .giving-iban {
+    font-size: clamp(0.72rem, 3.4vw, 0.85rem);
+    letter-spacing: 0.02em;
+  }
+
   .giving-method-card {
     padding: var(--space-6);
   }
