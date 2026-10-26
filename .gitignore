@@ -17,6 +17,8 @@ node_modules/
 # Local test servers & logs
 *.log
 tools/*.exe
+**/scripts/bin/
+
 
 # Raw photos
 FOTO/
