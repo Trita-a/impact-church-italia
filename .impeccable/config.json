@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-10-26T09:15:12.066Z",
+        "reason": "Body interface font paired with Playfair Display and Lora"
+      }
+    ]
+  }
+}

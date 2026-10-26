@@ -12,12 +12,18 @@ colors:
   secondary: "#b6cad3"
   cta: "#1a3a4c"
   warm: "#f4f1eb"
+  warm-alt: "#f5ebe0"
   neutral-bg: "#fafaf9"
   neutral-bg-alt: "#f5f5f4"
   neutral-text: "#1f2937"
-  neutral-muted: "#6b7280"
+  neutral-muted: "#525866"
+  neutral-subtle: "#64748b"
   neutral-border: "#e7e5e4"
   white: "#ffffff"
+  tagline-text: "#f5d8c3"
+  gold-light: "#b58b5a"
+  red-live: "#dc2626"
+  blue-paypal: "#003087"
 typography:
   display:
     fontFamily: "Playfair Display, Georgia, serif"
@@ -46,10 +52,14 @@ typography:
     lineHeight: 1.7
     fontStyle: "italic"
 rounded:
+  xs: "2px"
   sm: "4px"
+  badge: "6px"
   md: "8px"
+  btn: "10px"
   lg: "12px"
   xl: "16px"
+  2xl: "1.5rem"
   full: "9999px"
 spacing:
   xs: "4px"
@@ -62,18 +72,18 @@ components:
   button-primary:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.primary-dark}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.btn}"
     padding: "12px 28px"
   button-primary-hover:
     backgroundColor: "{colors.accent-light}"
   button-secondary:
     backgroundColor: "{colors.cta}"
     textColor: "{colors.white}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.btn}"
     padding: "12px 28px"
   card:
     backgroundColor: "{colors.white}"
-    rounded: "{rounded.lg}"
+    rounded: "{rounded.2xl}"
     padding: "32px"
 ---
 
@@ -96,7 +106,7 @@ La palette cromatica è organizzata secondo ruoli semantici e di contrasto:
 - **Accenti Caldi (`--color-accent`, `--color-accent-text`):** `#dba581` (badge e dettagli decorativi su sfondo scuro) e `#7a5030` (accento per testi su sfondo chiaro conforme a WCAG AA 5.2:1).
 - **CTA Secondario (`--color-cta`):** `#1a3a4c`. Blu ardesia profondo per pulsanti di contatto, donazioni e azioni secondarie.
 - **Sfondi e Superfici Neutre:** `#fafaf9` (sfondo pagina principale), `#f5f5f4` (sezioni alternate), `#f4f1eb` (sfondo caldo cards), `#ffffff` (cards in rilievo).
-- **Testo e Metadati:** `#1f2937` (titoli e testo primario), `#6b7280` (testo secondario/muted), `#9ca3af` (metadati discreti).
+- **Testo e Metadati:** `#1f2937` (titoli e testo primario), `#525866` (testo secondario conforme a WCAG AA > 6:1), `#64748b` (metadati discreti conformi a WCAG AA 4.54:1).
 
 ## Typography
 
@@ -130,16 +140,16 @@ L'elevazione è discreta e organica, preferendo sottili ombre volumetriche neutr
 
 ## Shapes
 
-- **Arrotondamenti Standard:** `8px` (`--radius-md`) per cards e pannelli; `4px` (`--radius-sm`) per input form; `9999px` (`--radius-full`) per badge di stato e pillole linguistiche.
+- **Arrotondamenti Standard:** `8px` (`--radius-md`) per cards medie; `1.5rem` (`--radius-2xl`) per contenitori principali; `6px` per badge; `10px` per bottoni; `9999px` (`--radius-full`) per badge di stato e pillole linguistiche.
 - **Rapporto di Forma:** Forme rettangolari stabili con angoli ammorbiditi che trasmettono accoglienza e stabilità istituzionale.
 
 ## Components
 
 - **Header / Navigation:** Barra sticky semi-trasparente con effetto blur (`backdrop-filter: blur(12px)`), logo a sinistra, menu di navigazione centrale, selettore di lingua a pillola (`IT / EN`) e CTA principale.
-- **Hero Section:** Sfondo fotografico scuro con overlay gradiente cinematico, badge dorato della denominazione, titolo serif importante, orari di culto ben visibili e doppio bottone d'azione.
-- **Team / Leadership Cards:** Ritratti fotografici proporzionati con cornice discreta, nome in serif, ruolo ministeriale in chiaro e biografia sintetica.
+- **Hero Section:** Sfondo fotografico scuro con overlay gradiente cinematico, badge dorato della denominazione (con font >= 11px per piena leggibilità), titolo serif importante, orari di culto ben visibili e doppio bottone d'azione.
+- **Team / Leadership Cards:** Ritratti fotografici proporzionati con cornice discreta, nome in serif (`h3`), ruolo ministeriale in chiaro (`#7a5030`) e biografia sintetica.
 - **Live Stream Widget:** Indicatore di stato dal vivo o ultima registrazione con miniatura 16:9, titolo del messaggio e link diretto a YouTube.
-- **Footer:** Tonalità profonda (`#111827`), colonne ordinate con logo, orari di ritrovo, indirizzo con mappa rapida, recapiti e link social attivi.
+- **Footer:** Tonalità profonda (`#111827`), testo ad alto contrasto (>= 10:1), colonne ordinate con logo, orari di ritrovo, indirizzo con mappa rapida, recapiti e link social attivi.
 
 ## Do's and Don'ts
 
